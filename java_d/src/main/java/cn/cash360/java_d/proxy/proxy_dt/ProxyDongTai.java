@@ -57,7 +57,7 @@ public class ProxyDongTai {
         //todo ClassLoader  类加载器
         //获取动态代理字节码对象
         Class<?> proxyClass = Proxy.getProxyClass(IHello.class.getClassLoader(), IHello.class);
-        //获取代理类的构造函数 并传入参数类型  HwInvocationHandler.class
+        //获取代理类的构造函数 并传入参数类型  InvocationHandler.class
         Constructor<?> proxyClassConstructor = proxyClass.getConstructor(InvocationHandler.class);
         //通过构造函数来创建动态代理对象，将自定义的 HwInvocationHandler对象实例传入
 
@@ -70,10 +70,12 @@ public class ProxyDongTai {
         //todo 静态和动态的区别
     }
 
-    //动态代理类另一只创建方式
+    //动态代理类另一种创建方式
     void createInvocationHandler() {
 
-        IHello hello = (IHello) Proxy.newProxyInstance(IHello.class.getClassLoader(), new Class[]{IHello.class},//相同的接口类
+        IHello hello = (IHello) Proxy.newProxyInstance(//
+                IHello.class.getClassLoader(),//
+                new Class[]{IHello.class},//相同的接口类
                 new HwInvocationHandler(new LiSiHello()));//
 
         hello.sayHello();
