@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import cn.cash360.ui.activity.MainActivity;
+
 /**
  * @time 2019/3/20 12:39
  * @desc

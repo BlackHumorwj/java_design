@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.cash360.java_design.MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_click"
-        android:layout_width="wrap_content"
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!--Navigation 导航-->
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:itemTextColor="@drawable/tab_main_selector"
+        app:menu="@menu/menu_main" />
+    <!--
+    itemBackground 导航背景色
+    itemIconTint  导航图片着色
+    itemTextColor  导航字体颜色
 
-</android.support.constraint.ConstraintLayout>
+BottomNavigationView
+
+    <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>//选中时的最大宽度
+    <dimen name="design_bottom_navigation_active_text_size">14sp</dimen>//选中时的字体大小
+    <dimen name="design_bottom_navigation_elevation">8dp</dimen>//阴影的大小
+    <dimen name="design_bottom_navigation_height">56dp</dimen>//高度
+    <dimen name="design_bottom_navigation_item_max_width">96dp</dimen>//未选中的最大宽度
+    <dimen name="design_bottom_navigation_item_min_width">56dp</dimen>//未选中的最小的宽度
+    <dimen name="design_bottom_navigation_margin">8dp</dimen>//icon与文本之间的间距
+    <dimen name="design_bottom_navigation_shadow_height">1dp</dimen>//阴影高度
+    <dimen name="design_bottom_navigation_text_size">12sp</dimen>//未选中时的字体大小
+
+
+
+    -->
+</LinearLayout>
