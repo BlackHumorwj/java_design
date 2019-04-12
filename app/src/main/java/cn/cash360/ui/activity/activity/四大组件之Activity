@@ -1,0 +1,18 @@
+入门级
+    一、生命周期
+        1、一般情况各种生命周期回调方法
+        2、异常情况下生命周期的回调方法
+            a、系统配置发生改变
+            b、activity 优先级低被系统回收之后
+
+    二、Activity与Fragment生命周期关系
+        创建
+        销毁
+
+    三、Activity与Menu创建的先后顺序
+
+    四、Activity的启动模式
+        1、standard 标准模式
+        2、singleTop 栈顶复用
+        3、singleTask 栈内复用
+        4、singleInstance 单例

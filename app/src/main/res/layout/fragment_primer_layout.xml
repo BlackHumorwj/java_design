@@ -4,12 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ddddddddd"
-        android:textColor="@color/wolf_color_00A379"
-        android:textSize="17sp" />
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/recycle_view"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
