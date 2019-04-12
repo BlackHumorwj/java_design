@@ -36,12 +36,21 @@ public class ProxyDongTai {
 
 
         //todo 方法参数详解
+
+        /**
+         * @param o       被代理对象
+         * @param method  Method
+         * @param objects
+         * @return
+         * @throws Throwable
+         */
         @Override
         public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
 
             //添加其他方法增强功能  Aspect Oriented Programming 面向切面编程
 
-            //执行目标方法
+            //执行被代理对象的 目标方法 invoke
+            //并得到返回值
             Object o1 = method.invoke(target, objects);
 
             System.out.println("------插入后置处理代码-------------");
@@ -73,14 +82,22 @@ public class ProxyDongTai {
     //动态代理类另一种创建方式
     void createInvocationHandler() {
 
+        //拿到
         IHello hello = (IHello) Proxy.newProxyInstance(//
                 IHello.class.getClassLoader(),//
-                new Class[]{IHello.class},//相同的接口类
-                new HwInvocationHandler(new LiSiHello()));//
+                new Class[]{IHello.class},//相同的接口类，
+                new HwInvocationHandler(new LiSiHello()));//动态代理类 构造中传入 被代理类
 
         hello.sayHello();
 
     }
+
+
+    /*
+     *动态代理 使用了反射的机制，来先了解下反射的机制
+     *  Method -- 方法的实例对象，一个方法对应一个Method对象 里面包含了方法的 修饰符 方法名 参数列表 返回值 等
+     */
+
 
 
 }

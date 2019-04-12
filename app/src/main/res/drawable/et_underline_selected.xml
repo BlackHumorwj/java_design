@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="0dp"
+        android:left="-2dp"
+        android:right="-2dp"
+        android:top="-2dp">
+        <shape>
+
+            <solid android:color="@android:color/transparent" />
+
+
+            <!--边框-->
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/transparent" />
+            <padding android:bottom="10dp" />
+
+        </shape>
+    </item>
+
+
+    <!--
+    layer- list
+
+   图层 能干嘛
+
+   LayerDrawable  DrawableResource
+
+   layer-list 中不同的图层使用 item 节点来定义。
+
+    -->
+
+</layer-list>
