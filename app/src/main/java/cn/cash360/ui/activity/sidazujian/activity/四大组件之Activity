@@ -10,10 +10,13 @@
         销毁
 
     四、Activity与Menu创建的先后顺序
-
+        onResume() --> onCreateOptionMenu()
     五、Activity的启动模式
         1、standard 标准模式
+            谁启动了该模式的Activity，该Activity就属于启动它的Activity的任务栈中。所以，没有任务栈的Context启动它会报错
+            如 Application 的Context。
         2、singleTop 栈顶复用
         3、singleTask 栈内复用
             clearTop的作用
-        4、singleInstance 单例
+        4、singleInstance 单例模式
+            单独的新建一个任务栈，存放此模式的Activity
