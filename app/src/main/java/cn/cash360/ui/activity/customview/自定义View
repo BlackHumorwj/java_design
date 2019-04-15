@@ -1,3 +1,21 @@
-一、自定义View
+一、自定义View(继承 View)
+    1、测量
+        1.1 onMeasure方法
+              protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+              widthMeasureSpec  32位int 值。高两位bit 能表示四种可能 表示测量的模式；低30位表示具体尺寸
+        1.2 测量模式
+              MeasureSpec.UNSPECIFIED 父容器没有对当前View有任何限制，当前View可以任意取尺寸 ,这种情况一般要特殊处理，给默认值
+              MeasureSpec.EXACTLY 当前的尺寸就是当前View应该取的尺寸 。对应：match_parent  10dp等
+              MeasureSpec.AT_MOST 当前尺寸是当前View能取的最大尺寸     对于：wrap_content
 
-二/自定义ViewGroup
+        1.3 实际开发中注意事项
+            a、考虑宽和高模式组合时，设置控件的宽高
+
+    2、绘制
+二、自定义ViewGroup(继承 ViewGroup)
+    1、测量
+        1.1 测量所以的子View  measureChildren()
+        1.2 根据ViewGroup测量模式组合，设置ViewGroup的宽高
+    2、布局
+        遍历子View 布置子View,调用子View 的layout()方法
+    3、绘制

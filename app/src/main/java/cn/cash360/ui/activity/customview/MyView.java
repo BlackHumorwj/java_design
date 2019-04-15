@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -65,6 +64,7 @@ public class MyView extends View {
         super.onDraw(canvas);
     //绘制想要的图形
     //需要设置参数 来 确定要绘制的图形
+        //比如 绘制一个圆  需要确定 圆心坐标和圆的半径
         int  radius =getMeasuredHeight()/2;
         float cx = getPaddingLeft()+radius ;
         float cy = getPaddingTop()+radius;
