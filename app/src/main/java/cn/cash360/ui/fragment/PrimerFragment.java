@@ -1,5 +1,6 @@
 package cn.cash360.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +14,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.cash360.bean.PrimerBean;
 import cn.cash360.java_design.R;
+import cn.cash360.ui.activity.ainination.MyAnimationActivity;
+import cn.cash360.ui.activity.customview.MyViewActivity;
+import cn.cash360.ui.activity.sidazujian.ZuJianActivity;
 
 /**
  * @time 2019/4/12 12:53
@@ -44,17 +49,19 @@ public class PrimerFragment extends BaseFragment {
         recyclerView.setAdapter(new PrimerAdapter(getList()));
     }
 
-    private ArrayList<String> getList() {
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("四大组件");
+    private ArrayList<PrimerBean> getList() {
+        ArrayList<PrimerBean> list = new ArrayList<PrimerBean>();
+        list.add(new PrimerBean<ZuJianActivity>(ZuJianActivity.class, "四大组件"));
+        list.add(new PrimerBean<MyViewActivity>(MyViewActivity.class, "自定义View"));
+        list.add(new PrimerBean<MyAnimationActivity>(MyAnimationActivity.class, "动画和手势"));
         return list;
     }
 
     public class PrimerAdapter extends RecyclerView.Adapter<PrimerAdapter.Holder> {
 
-        List<String> mList;
+        List<PrimerBean> mList;
 
-        public PrimerAdapter(ArrayList<String> list) {
+        public PrimerAdapter(ArrayList<PrimerBean> list) {
             this.mList = list;
         }
 
@@ -67,11 +74,14 @@ public class PrimerFragment extends BaseFragment {
 
         @Override
         public void onBindViewHolder(@NonNull Holder viewHolder, int i) {
-            viewHolder.tvName.setText(mList.get(viewHolder.getAdapterPosition()));
+            final PrimerBean primerBean = mList.get(viewHolder.getAdapterPosition());
+            viewHolder.tvName.setText(primerBean.name);
             viewHolder.tvName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent intent = new Intent(mActivity, primerBean.activity);
+                    //非静态内部类持有外部内的引用 哈哈哈
+                    startActivity(intent);
                 }
             });
         }

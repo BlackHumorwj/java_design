@@ -1,5 +1,7 @@
 package cn.cash360.ui.fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +18,16 @@ import android.view.ViewGroup;
 public class BaseFragment extends Fragment {
 
     protected View mContentView;
+
+    protected Activity mActivity;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = (Activity) context;
+    }
+
+
 
     @Nullable
     @Override
