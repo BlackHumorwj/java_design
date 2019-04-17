@@ -32,12 +32,7 @@ public class MyView extends View {
         int height = getMySize(90, heightMeasureSpec);
 
         //取等边
-        if (width < height) {
-            height = width;
-        } else {
-            width = height;
-        }
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(Math.min(width, height), Math.min(width, height));
     }
 
     private int getMySize(int defaultSize, int measureSpec) {
@@ -62,16 +57,16 @@ public class MyView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-    //绘制想要的图形
-    //需要设置参数 来 确定要绘制的图形
+        //绘制想要的图形
+        //需要设置参数 来 确定要绘制的图形
         //比如 绘制一个圆  需要确定 圆心坐标和圆的半径
-        int  radius =getMeasuredHeight()/2;
-        float cx = getPaddingLeft()+radius ;
-        float cy = getPaddingTop()+radius;
+        int radius = getMeasuredHeight() / 2;
+        float cx = getPaddingLeft() + radius;
+        float cy = getPaddingTop() + radius;
 
         Paint paint = new Paint();
         paint.setColor(Color.GRAY);
-        canvas.drawCircle(cx,cy,radius,paint);
+        canvas.drawCircle(cx, cy, radius, paint);
 
     }
 }
