@@ -21,7 +21,7 @@ public class MyView extends View {
      *                          todo google这样设计的好处：
      *                          测量模式分为三种：
      *                          1、 MeasureSpec.UNSPECIFIED 父容器没有对当前View有任何限制，当前View可以任意取尺寸 ,这种情况一般要特殊处理，给默认值
-     *                          2、 MeasureSpec.EXACTLY 当前的尺寸就是当前View应该取的尺寸 。对应：match_parent  10dp等
+     *                          2、 MeasureSpec.EXACTLY 当前的尺寸就是当前View对应的尺寸 。对应：match_parent  10dp等
      *                          3、 MeasureSpec.AT_MOST 当前尺寸是当前View能取的最大尺寸     对于：wrap_content
      * @param heightMeasureSpec
      */
