@@ -3,7 +3,7 @@
         提供如下动画
             AlphaAnimation  透明度动画
             RotateAnimation 旋转动画
-            ScaleAnimation  旋转动画
+            ScaleAnimation  缩放动画
 
     2、属性动画框架（首选动画框架）
     3、Drawable动画（逐帧动画）
