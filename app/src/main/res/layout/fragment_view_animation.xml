@@ -5,29 +5,41 @@
               android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_drawable"
+        android:id="@+id/tv_alpha"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:alpha="1.0"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
-        android:text="DrawableAnimation"/>
+        android:text="透明度动画"/>
 
     <TextView
-        android:id="@+id/tv_view"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:alpha="1.0"
-        android:background="@color/wolf_color_66aded"
-        android:gravity="center"
-        android:text="ViewAnimation"/>
-
-    <TextView
-        android:id="@+id/tv_tween_animation"
+        android:id="@+id/tv_scale"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:alpha="1.0"
         android:background="@color/wolf_color_0s0aded"
         android:gravity="center"
-        android:text="补间动画"/>
+        android:text="缩放动画"/>
+
+    <TextView
+        android:id="@+id/tv_trans"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/wolf_color_7C5B09"
+        android:gravity="center"
+        android:text="平移动画"/>
+
+    <TextView
+        android:id="@+id/tv_rotate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/wolf_color_7C5B09"
+        android:gravity="center"
+        android:text="旋转动画"/>
+
+
+
 </LinearLayout>

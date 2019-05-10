@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+
+    <item
+        android:drawable="@color/wolf_color_0s0aded"
+        android:duration="1000"/>
+    <item
+        android:drawable="@color/wolf_color_7C5B09"
+        android:duration="1000"/>
+    <item
+        android:drawable="@color/wolf_color_2e3133"
+        android:duration="1000"/>
+    <item
+        android:drawable="@color/wolf_color_26f9861b"
+        android:duration="1000"/>
+    <item
+        android:drawable="@color/wolf_color_66aded"
+        android:duration="1000"/>
+    <item
+        android:drawable="@color/wolf_color_80BD31"
+        android:duration="1000"/>
+
+</animation-list>

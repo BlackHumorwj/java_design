@@ -1,9 +1,64 @@
-概述
-    1、View动画框架
+一、概述
+    1、View动画框架（补间动画）
         提供如下动画
             AlphaAnimation  透明度动画
             RotateAnimation 旋转动画
             ScaleAnimation  缩放动画
+            TranslateAnimation 平移动画
+            AnimationSet 动画集合类
+
+        View动画框架缺点：改变的只是View的显示，而没有改变View的响应区域，并且View动画只能对View做四种类型的补间动画
+
+    1.1 补间动画（Tween animation）两个常用的特殊场景
+        a. 过布局动画（LayoutAnimation）给ViewGroup的子View指定入场动画
+
+
+
+
+
 
     2、属性动画框架（首选动画框架）
+        Google在Android3.0（API级别11）及其后续版本中添加了属性动画框架
+        定义：只要某个类具有属性（即该类含有某个字段的set和get方法），那么属性动画框架就可以对该类的对象进行动画操作（其实就是通过反射技术来获取和执行属性的get，set方法）
+        相关类：Animator AnimatorSet
+                        ValueAnimator  ObjectAnimator
+                                       TimerAnimator
+
     3、Drawable动画（逐帧动画）
+        定义：通过一个接一个地加载一系列Drawable资源来创建动画
+
+
+二、预备知识
+
+    1、时间插值器
+        针对补间动画，时间插值器（TimeInterpolator）的作用是根据时间流逝的百分比计算出动画进度的百分比。有了动画进度的百分比，就可以很容易的计算出动画开始的关键帧与将要显示的帧之间的差异（通过Transformation类的对象表示）
+        针对属性动画，时间插值器（TimeInterpolator）的作用是根据时间流逝的百分比计算出动画进度的百分比（即属性值改变的百分比）
+        Interpolator负责调节动画进度变化快慢
+
+
+    2、类型估值器
+       类型估值器（TypeEvaluator）是针对于属性动画框架的，对于View动画框架是不需要类型估值器（TypeEvaluator）的。
+       作用：根据属性值改变的百分比计算出改变后的属性值。由于属性动画实际上作用的是对象的属性，而属性的类型是不同的，因此Android内置了一些常用的类型估值器来操作不同类型的属性
+        TypeEvaluator负责改变动画最终的属性值
+
+        //fraction  Interpolator中返回的动画进度
+        public T evaluate(float fraction, T startValue, T endValue);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+参考：https://www.jianshu.com/p/b117c974deaf

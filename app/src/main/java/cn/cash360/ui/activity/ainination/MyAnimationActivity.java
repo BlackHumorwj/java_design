@@ -1,10 +1,10 @@
 package cn.cash360.ui.activity.ainination;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
+import android.view.View;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
@@ -14,46 +14,42 @@ import cn.cash360.ui.activity.base.BaseActivity;
  * @desc
  */
 
-public class MyAnimationActivity extends BaseActivity {
+public class MyAnimationActivity extends BaseActivity implements View.OnClickListener {
+
+
+    public static Intent newInstance(Context context) {
+        Intent intent = new Intent(context, MyAnimationActivity.class);
+        return intent;
+    }
 
 
     @Override
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_animation);
         setTitle("动画");
+        findViewById(R.id.tv_drawable).setOnClickListener(this);
+        findViewById(R.id.tv_view).setOnClickListener(this);
+        findViewById(R.id.tv_tween_animation).setOnClickListener(this);
 
-        startAlphaAnim();
-        startScaleAnim();
-        startTransAnim();
-        startRotateAnim();
     }
 
-    private void startAlphaAnim() {
-        TextView ivAlpha = findViewById(R.id.tv_alpha);
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_alpha_animation);
-        animation.setFillAfter(true);
-        ivAlpha.startAnimation(animation);
-    }
 
-    private void startScaleAnim() {
-        TextView ivAlpha = findViewById(R.id.tv_scale);
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_scale_animation);
-        animation.setFillAfter(true);
-        ivAlpha.startAnimation(animation);
-    }
+    @Override
+    public void onClick(View v) {
+        final int id = v.getId();
+        switch (id) {
+            case R.id.tv_drawable:
+                startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.DRAWABLE_ANIMATION_FRAGMENT));
+                break;
+            case R.id.tv_view:
+                startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.VIEW_ANIMATION_FRAGMENT));
+                break;
+            case R.id.tv_tween_animation:
+                startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.TWEEN_ANIMATION_FRAGMENT));
 
-    private void startTransAnim() {
-        TextView ivAlpha = findViewById(R.id.tv_trans);
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_trans_animation);
-        animation.setFillAfter(true);
-        ivAlpha.startAnimation(animation);
-    }
-
-    private void startRotateAnim() {
-        TextView ivAlpha = findViewById(R.id.tv_rotate);
-        final Animation animation = AnimationUtils.loadAnimation(this, R.anim.anim_rotate_animation);
-        animation.setFillAfter(true);
-        ivAlpha.startAnimation(animation);
+                break;
+        }
     }
 }
