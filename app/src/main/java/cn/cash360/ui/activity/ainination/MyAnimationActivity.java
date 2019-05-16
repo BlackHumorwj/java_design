@@ -32,6 +32,7 @@ public class MyAnimationActivity extends BaseActivity implements View.OnClickLis
         findViewById(R.id.tv_drawable).setOnClickListener(this);
         findViewById(R.id.tv_view).setOnClickListener(this);
         findViewById(R.id.tv_tween_animation).setOnClickListener(this);
+        findViewById(R.id.tv_object_animation).setOnClickListener(this);
 
     }
 
@@ -40,7 +41,7 @@ public class MyAnimationActivity extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         final int id = v.getId();
         switch (id) {
-            case R.id.tv_drawable:
+            case R.id.tv_drawable://
                 startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.DRAWABLE_ANIMATION_FRAGMENT));
                 break;
             case R.id.tv_view:
@@ -48,7 +49,9 @@ public class MyAnimationActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.tv_tween_animation:
                 startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.TWEEN_ANIMATION_FRAGMENT));
-
+                break;
+            case R.id.tv_object_animation:
+                startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.OBJECT_ANIMATION_FRAGMENT));
                 break;
         }
     }

@@ -1,4 +1,4 @@
-package cn.cash360.ui.activity.ainination;
+package cn.cash360.ui.fragment.animation;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import cn.cash360.java_design.R;
-import cn.cash360.ui.fragment.BaseFragment;
+import cn.cash360.ui.fragment.tab.BaseFragment;
 
 /**
  * @time 2019/5/10 11:55

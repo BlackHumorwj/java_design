@@ -1,4 +1,4 @@
-package cn.cash360.ui.fragment;
+package cn.cash360.ui.fragment.tab;
 
 import android.os.Bundle;
 

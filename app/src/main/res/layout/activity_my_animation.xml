@@ -5,15 +5,6 @@
               android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_drawable"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:alpha="1.0"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
-        android:text="DrawableAnimation"/>
-
-    <TextView
         android:id="@+id/tv_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -23,11 +14,30 @@
         android:text="ViewAnimation"/>
 
     <TextView
+        android:id="@+id/tv_drawable"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center"
+        android:text="逐帧动画(DrawableAnimation)"/>
+
+
+    <TextView
         android:id="@+id/tv_tween_animation"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:alpha="1.0"
         android:background="@color/wolf_color_0s0aded"
         android:gravity="center"
-        android:text="补间动画"/>
+        android:text="补间动画（Tween animation）"/>
+
+    <TextView
+        android:id="@+id/tv_object_animation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/wolf_color_26f9861b"
+        android:gravity="center"
+        android:text="属性动画"/>
 </LinearLayout>

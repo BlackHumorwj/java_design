@@ -12,9 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import cn.cash360.java_design.R;
-import cn.cash360.ui.fragment.AdvancedFragment;
-import cn.cash360.ui.fragment.JavaFragment;
-import cn.cash360.ui.fragment.PrimerFragment;
+import cn.cash360.ui.fragment.tab.AdvancedFragment;
+import cn.cash360.ui.fragment.tab.JavaFragment;
+import cn.cash360.ui.fragment.tab.PrimerFragment;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
 

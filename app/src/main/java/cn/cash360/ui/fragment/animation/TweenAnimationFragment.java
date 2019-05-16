@@ -1,4 +1,4 @@
-package cn.cash360.ui.activity.ainination;
+package cn.cash360.ui.fragment.animation;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cn.cash360.java_design.R;
-import cn.cash360.ui.fragment.BaseFragment;
+import cn.cash360.ui.fragment.tab.BaseFragment;
 
 /**
  * @time 2019/5/10 11:55

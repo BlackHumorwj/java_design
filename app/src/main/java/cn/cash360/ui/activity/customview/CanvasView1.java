@@ -71,7 +71,6 @@ public class CanvasView1 extends View {
         canvas.drawRect(rect, mPaint);
 
         //绘制圆角矩形
-
         canvas.drawRoundRect(new RectF(160, 260, 290, 290), 30, 30, mPaint);
 
     }

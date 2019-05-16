@@ -6,6 +6,10 @@ import android.support.v4.app.Fragment;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
+import cn.cash360.ui.fragment.animation.DrawableAnimationFragment;
+import cn.cash360.ui.fragment.animation.ObjectAnimationFragment;
+import cn.cash360.ui.fragment.animation.TweenAnimationFragment;
+import cn.cash360.ui.fragment.animation.ViewAnimationFragment;
 
 /**
  * @time 2019/5/10 14:15
@@ -16,6 +20,7 @@ public class AnimationActivity extends BaseActivity {
     public static final int DRAWABLE_ANIMATION_FRAGMENT = 0;
     public static final int VIEW_ANIMATION_FRAGMENT = 1;
     public static final int TWEEN_ANIMATION_FRAGMENT = 2;
+    public static final int OBJECT_ANIMATION_FRAGMENT = 3;
 
 
     public static Intent newInstance(Context context, int type) {
@@ -36,17 +41,23 @@ public class AnimationActivity extends BaseActivity {
         Fragment fragment = null;
         String title = "";
         switch (type) {
-            case DRAWABLE_ANIMATION_FRAGMENT:
-                title = "DrawableAnimation";
-                fragment = DrawableAnimationFragment.newInstance();
-                break;
             case VIEW_ANIMATION_FRAGMENT:
                 title = "ViewAnimation";
                 fragment = ViewAnimationFragment.newInstance();
                 break;
+
+            case DRAWABLE_ANIMATION_FRAGMENT:
+                title = "DrawableAnimation";
+                fragment = DrawableAnimationFragment.newInstance();
+                break;
+
             case TWEEN_ANIMATION_FRAGMENT:
                 title = "TweenAnimation";
                 fragment = TweenAnimationFragment.newInstance();
+                break;
+            case OBJECT_ANIMATION_FRAGMENT:
+                title = "ObjectAnimation";
+                fragment = ObjectAnimationFragment.newInstance();
                 break;
         }
 
