@@ -9,6 +9,7 @@ import cn.cash360.ui.activity.base.BaseActivity;
 import cn.cash360.ui.fragment.animation.DrawableAnimationFragment;
 import cn.cash360.ui.fragment.animation.ObjectAnimationFragment;
 import cn.cash360.ui.fragment.animation.TweenAnimationFragment;
+import cn.cash360.ui.fragment.animation.ValueAnimatorFragment;
 import cn.cash360.ui.fragment.animation.ViewAnimationFragment;
 
 /**
@@ -21,6 +22,7 @@ public class AnimationActivity extends BaseActivity {
     public static final int VIEW_ANIMATION_FRAGMENT = 1;
     public static final int TWEEN_ANIMATION_FRAGMENT = 2;
     public static final int OBJECT_ANIMATION_FRAGMENT = 3;
+    public static final int VALUE_ANIMATION_FRAGMENT = 4;
 
 
     public static Intent newInstance(Context context, int type) {
@@ -58,6 +60,10 @@ public class AnimationActivity extends BaseActivity {
             case OBJECT_ANIMATION_FRAGMENT:
                 title = "ObjectAnimation";
                 fragment = ObjectAnimationFragment.newInstance();
+                break;
+            case VALUE_ANIMATION_FRAGMENT:
+                title = "ValueAnimator";
+                fragment = ValueAnimatorFragment.newInstance();
                 break;
         }
 

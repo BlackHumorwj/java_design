@@ -39,6 +39,22 @@
         android:background="@color/wolf_color_7C5B09"
         android:gravity="center"
         android:text="旋转动画"/>
+    <TextView
+        android:id="@+id/tv_custom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/wolf_color_66aded"
+        android:gravity="center"
+        android:text="自定义属性动画"/>
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:alpha="1.0"
+        android:background="@color/wolf_color_66aded"
+        android:gravity="center"
+        android:text="ValueAnimator"/>
 
 
 

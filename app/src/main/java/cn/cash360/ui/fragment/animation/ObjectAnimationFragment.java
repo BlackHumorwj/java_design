@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import cn.cash360.java_design.R;
+import cn.cash360.ui.activity.ainination.AnimationActivity;
 import cn.cash360.ui.fragment.tab.BaseFragment;
 /*
  * 一、属性动画ObjectAnimator原理
@@ -97,6 +98,8 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
     private TextView mTvScale;
     private TextView mTvTrans;
     private TextView mTvRotate;
+    private TextView mTvCustom;
+    private TextView mTvValue;
 
     public static ObjectAnimationFragment newInstance() {
         Bundle args = new Bundle();
@@ -108,7 +111,7 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_view_animation;
+        return R.layout.fragment_objector_animation;
     }
 
     @Override
@@ -126,6 +129,10 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
         mTvTrans.setOnClickListener(this);
         mTvRotate = mContentView.findViewById(R.id.tv_rotate);
         mTvRotate.setOnClickListener(this);
+        mTvCustom = mContentView.findViewById(R.id.tv_custom);
+        mTvCustom.setOnClickListener(this);
+        mTvValue = mContentView.findViewById(R.id.tv_value);
+        mTvValue.setOnClickListener(this);
     }
 
     /**
@@ -176,6 +183,32 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
     }
 
 
+    private void startObjectAnim() {
+        //对 ViewWrapper height 属性进行动画操作
+        final ViewWrapper wrapper = new ViewWrapper(mContentView);
+        ObjectAnimator.ofFloat(wrapper, "height", mContentView.getMeasuredHeight()).setDuration(5000).start();
+    }
+
+
+    public class ViewWrapper {
+        private View mView;
+
+        public ViewWrapper(View view) {
+            mView = view;
+        }
+
+        public void setHeight(float height) {
+            mView.getLayoutParams().height = (int) height;
+            mView.requestLayout();
+        }
+
+        public int getHeight() {
+            return mView.getLayoutParams().height;
+        }
+
+    }
+
+
     @Override
     public void onClick(View v) {
         final int id = v.getId();
@@ -191,6 +224,12 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
                 break;
             case R.id.tv_rotate:
                 startRotateAnim();
+                break;
+            case R.id.tv_custom:
+               startObjectAnim();
+                break;
+            case R.id.tv_value:
+                startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.VALUE_ANIMATION_FRAGMENT));
                 break;
         }
 
