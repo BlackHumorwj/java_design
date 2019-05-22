@@ -5,9 +5,13 @@ import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.nineoldandroids.animation.IntEvaluator;
+import com.nineoldandroids.animation.ValueAnimator;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.ainination.AnimationActivity;
@@ -183,10 +187,20 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
     }
 
 
+    //自定义属性动画
     private void startObjectAnim() {
-        //对 ViewWrapper height 属性进行动画操作
-        final ViewWrapper wrapper = new ViewWrapper(mContentView);
-        ObjectAnimator.ofFloat(wrapper, "height", mContentView.getMeasuredHeight()).setDuration(5000).start();
+        final int random = (int) (Math.random() * 100);
+        Log.e("ddd", random + "");
+        if (random % 2 == 0) {
+            //对 ViewWrapper height 属性进行动画操作
+            final ViewWrapper wrapper = new ViewWrapper(mContentView);
+            ObjectAnimator.ofFloat(wrapper, "height", mContentView.getMeasuredHeight()).setDuration(5000).start();
+        } else {
+
+            startViewAnimator(mContentView, 0, mContentView.getMeasuredWidth());
+        }
+
+
     }
 
 
@@ -208,6 +222,31 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
 
     }
 
+    //通过 ValueAnimator 动态改变属性
+    private void startViewAnimator(final View target, final int start, final int end) {
+        final ValueAnimator valueAnimator = ValueAnimator.ofInt(start, end);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            //持有一个Int估值器 方便计算
+            IntEvaluator mIntEvaluator = new IntEvaluator();
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                //动画的进度值
+                int value = (int) valueAnimator.getAnimatedValue();
+                //动画的进度百分比
+                final float animatedFraction = valueAnimator.getAnimatedFraction();
+                Log.e("animatedFraction", animatedFraction + "---" + value);
+                target.getLayoutParams().width = value;
+                //target.getLayoutParams().width = mIntEvaluator.evaluate(animatedFraction, start, end);
+                target.requestLayout();
+
+            }
+        });
+        valueAnimator.setDuration(5000).start();
+
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -226,7 +265,7 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
                 startRotateAnim();
                 break;
             case R.id.tv_custom:
-               startObjectAnim();
+                startObjectAnim();
                 break;
             case R.id.tv_value:
                 startActivity(AnimationActivity.newInstance(mActivity, AnimationActivity.VALUE_ANIMATION_FRAGMENT));

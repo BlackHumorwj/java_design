@@ -56,7 +56,6 @@ public class TweenAnimationFragment extends BaseFragment implements View.OnClick
         final TextView textView = new TextView(mActivity);
         textView.setText("顶顶顶顶" + mLlRoot.getChildCount());
         mLlRoot.addView(textView);
-        mLlRoot.startLayoutAnimation();
     }
 
 

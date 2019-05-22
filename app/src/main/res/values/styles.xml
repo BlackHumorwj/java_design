@@ -23,4 +23,21 @@
         -->
     </style>
 
+    <style name="ViewDefaultStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TvBaseStyle" parent="ViewDefaultStyle">
+        <item name="android:textColorHint">@color/tv_color_hint_text</item>
+    </style>
+
+
+    <style name="Tv15SpStyle" parent="TvBaseStyle">
+        <item name="android:textColor">@color/tv_color_main_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+
 </resources>

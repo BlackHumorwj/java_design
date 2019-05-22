@@ -4,19 +4,43 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
+    <!-- android:animateLayoutChanges="true" 子View改变使用系统默认动画-->
     <LinearLayout
         android:id="@+id/ll_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wolf_color_66aded"
+            android:padding="15dp"
+            android:text="LayoutAnimation"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wolf_color_66aded"
+            android:padding="15dp"
+            android:text="LayoutAnimation"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wolf_color_66aded"
+            android:padding="15dp"
+            android:text="LayoutAnimation"/>
+
     </LinearLayout>
 
 
     <TextView
         android:id="@+id/tv_add"
-        android:text="新增"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp"/>
+        android:padding="15dp"
+        android:text="新增"/>
 
 </LinearLayout>
