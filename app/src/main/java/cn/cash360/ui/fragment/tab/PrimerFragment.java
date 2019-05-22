@@ -16,6 +16,7 @@ import java.util.List;
 
 import cn.cash360.bean.PrimerBean;
 import cn.cash360.java_design.R;
+import cn.cash360.ui.activity.ainination.GestureActivity;
 import cn.cash360.ui.activity.ainination.MyAnimationActivity;
 import cn.cash360.ui.activity.customview.MyViewActivity;
 import cn.cash360.ui.activity.sidazujian.ZuJianActivity;
@@ -53,7 +54,8 @@ public class PrimerFragment extends BaseFragment {
         ArrayList<PrimerBean> list = new ArrayList<PrimerBean>();
         list.add(new PrimerBean<ZuJianActivity>(ZuJianActivity.class, "四大组件"));
         list.add(new PrimerBean<MyViewActivity>(MyViewActivity.class, "自定义View"));
-        list.add(new PrimerBean<MyAnimationActivity>(MyAnimationActivity.class, "动画和手势"));
+        list.add(new PrimerBean<MyAnimationActivity>(MyAnimationActivity.class, "动画"));
+        list.add(new PrimerBean<GestureActivity>(GestureActivity.class, "手势"));
         return list;
     }
 

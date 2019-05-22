@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.cash360.java_design">
+<manifest package="cn.cash360.java_design"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -11,16 +11,19 @@
         android:theme="@style/AppTheme">
         <activity android:name="cn.cash360.ui.activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="cn.cash360.ui.activity.customview.MyViewActivity" />
-        <activity android:name="cn.cash360.ui.activity.sidazujian.ZuJianActivity" />
-        <activity android:name="cn.cash360.ui.activity.ainination.MyAnimationActivity" />
+        <activity android:name="cn.cash360.ui.activity.customview.MyViewActivity"/>
+        <activity android:name="cn.cash360.ui.activity.sidazujian.ZuJianActivity"/>
+        <activity android:name="cn.cash360.ui.activity.ainination.MyAnimationActivity"/>
         <activity android:name="cn.cash360.ui.activity.ainination.AnimationActivity"/>
+        <activity
+            android:name="cn.cash360.ui.activity.ainination.GestureActivity"
+            android:label="手势"/>
     </application>
 
 </manifest>
