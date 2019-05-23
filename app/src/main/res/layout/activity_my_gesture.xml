@@ -14,13 +14,13 @@
         android:text="GestureDetector"/>
 
     <TextView
-        android:id="@+id/tv_drawable"
+        android:id="@+id/tv_scale_gesture"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:alpha="1.0"
         android:background="@color/colorPrimaryDark"
         android:gravity="center"
-        android:text="逐帧动画(DrawableAnimation)"/>
+        android:text="ScaleGestureDetector"/>
 
 
     <cn.cash360.ui.view.FailingBall

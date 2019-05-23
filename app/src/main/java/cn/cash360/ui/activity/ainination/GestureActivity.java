@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,13 +21,15 @@ import cn.cash360.ui.activity.base.BaseActivity;
 
 /**
  * @time 2019/4/17 13:47
- * @desc
+ * @desc 参考：https://www.gcssloop.com/customview/gestruedector
+ * https://www.gcssloop.com/customview/scalegesturedetector
  */
 
-public class GestureActivity extends BaseActivity implements View.OnClickListener {
+public class GestureActivity extends BaseActivity {
 
 
     private TextView mTvGesture;
+    private TextView mTvScaleGesture;
 
     public static Intent newInstance(Context context) {
         Intent intent = new Intent(context, GestureActivity.class);
@@ -40,11 +43,11 @@ public class GestureActivity extends BaseActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_gesture);
         mTvGesture = (TextView) findViewById(R.id.tv_view);
-        mTvGesture.setOnClickListener(this);
-
+        mTvScaleGesture = (TextView) findViewById(R.id.tv_scale_gesture);
         initGesture();
-
+        initScaleGesture();
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     private void initGesture() {
@@ -159,8 +162,51 @@ public class GestureActivity extends BaseActivity implements View.OnClickListene
     }
 
 
-    @Override
-    public void onClick(View v) {
-        final int id = v.getId();
+    /**
+     * 缩放手势监听
+     * 缩放中心：计算原理 计算中心点的原理其实也非常简单，那就是将所有的坐标都加起来，然后除以数量即可
+     * 缩放因子：计算缩放比例也很简单，就是计算各个手指到焦点的平均距离，在用户手指移动后用新的平均距离除以旧的平均距离，并以此计算得出缩放比例
+     */
+    @SuppressLint("ClickableViewAccessibility")
+    private void initScaleGesture() {
+
+
+        final ScaleGestureDetector.OnScaleGestureListener onScaleGestureListener = new ScaleGestureDetector.OnScaleGestureListener() {
+
+            @Override
+            public boolean onScale(ScaleGestureDetector detector) {
+
+                mTvScaleGesture.setText(MessageFormat.format("focusX = {0}\nfocusY = {1}\n scaleFactor = {2}", detector.getFocusX(), detector.getFocusY(), detector.getScaleFactor()));
+
+                return false;//如果返回 true 则表示当前缩放事件已经被处理，检测器会重新积累缩放因子，返回 false 则会继续积累缩放因子。
+            }
+
+            @Override
+            public boolean onScaleBegin(ScaleGestureDetector detector) {
+                mTvScaleGesture.setText("开始");
+                return true;//如果返回 false 则表示不使用当前这次缩放手势。
+            }
+
+            @Override
+            public void onScaleEnd(ScaleGestureDetector detector) {
+                //缩放手势结束。
+                // mTvScaleGesture.setText("结束");
+            }
+        };
+
+        final ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(mActivity, onScaleGestureListener);
+
+
+        mTvScaleGesture.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                scaleGestureDetector.onTouchEvent(event);
+                return true;//当前控件消费掉
+            }
+        });
+
+
     }
+
+
 }
