@@ -1,0 +1,104 @@
+
+1、url格式
+    scheme://host[:port]/path[?query]
+
+    scheme协议，常用的协议是http、https
+    host 主机地址，可以是域名，也可以是IP地址
+    port 端口 http协议默认端口是：80端口，如果不写默认就是:80端口,https默认端口443端口
+    path 路径 网络资源在服务器中的指定路径
+    query 查询字符串 如果需要从服务器那里查询内容
+
+2、http 网络应用层协议缓存相关
+	
+	2.1 http报文
+		格式：起始行
+			  首部
+			  主体
+		
+		
+		请求报文
+			<method> <request-url> <version>
+			<headers>
+
+			<entity-body>
+			
+		响应报文
+			<version> <status> <reason-phrase>
+			<headers>
+
+			<entity-body>
+		
+		报文解释：
+			
+			<method> 
+			        指请求方法，常用的主要是Get、 Post、Head 等
+					 * get和post区别
+			
+			<version> 
+			        指协议版本，现在通常都是Http/1.1了
+			
+			<request-url> 请求地址
+			
+			<status> 
+					指响应状态码， 我们熟悉的200、404等等
+						常见的状态码主要有  
+							200 OK  请求成功，实体包含请求的资源  
+							301 Moved Permanent 请求的URL被移除了，通常会在Location首部中包含新的URL用于重定向。  
+							304 Not Modified    条件请求进行再验证，资源未改变。  
+							404 Not Found       资源不存在  
+							206 Partial Content 成功执行一个部分请求。这个在用于断点续传时会涉及到。
+			
+			<reason-phrase> 
+		
+					原因短语，200 OK 、404 Not Found 这种后面的描述就是原因短语，通常不必太关注。
+			
+			<headers>
+				和缓存相关的头部信息
+					Date  
+					Cache-Control  
+					Last-Modified  
+					Etag  
+					Expires  
+					If-Modified-Since   
+					If-None-Match  
+					If-Unmodified-Since  
+					If-Range  
+					If-Match
+
+			<entity-body>
+				请求发送的资源，或是响应返回的资源。
+				
+	2.2 Http缓存
+		
+		
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				

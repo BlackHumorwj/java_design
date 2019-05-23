@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 //apply plugin: 'com.jakewharton.butterknife'
 android {
     compileSdkVersion 28
+
+
     defaultConfig {
         applicationId "cn.cash360.java_design"
         minSdkVersion 15
@@ -9,7 +11,25 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //必须要保证所有的flavor 都属于同一个维度
+        flavorDimensions "default"
     }
+
+    // 其中defaultConfig{}中为默认值，productFlavors{}会复写所有可以复写的值。
+    productFlavors {
+        demo {
+            applicationId "com.example.demo"
+            versionName "1.0-demo"
+        }
+
+        full {
+            applicationId "com.example.gradledemo01.full"
+            versionName "1.0-full"
+            resValue("string", "app_name", "测试")
+        }
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
