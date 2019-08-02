@@ -4,32 +4,32 @@
     <item
         android:id="@+id/one"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tab_icon_tally"
         android:title="primer"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/two"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tab_icon_tally"
         android:title="advanced"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/three"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tab_icon_tally"
         android:title="java"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/four"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tab_icon_tally"
         android:title="测试1"
         android:visible="false"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/five"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tab_icon_tally"
         android:title="测试1"
         android:visible="false"
         app:showAsAction="ifRoom" />

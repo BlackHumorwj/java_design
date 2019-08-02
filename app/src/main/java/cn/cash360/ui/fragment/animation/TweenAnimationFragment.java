@@ -1,8 +1,6 @@
 package cn.cash360.ui.fragment.animation;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -34,14 +32,8 @@ public class TweenAnimationFragment extends BaseFragment implements View.OnClick
         return R.layout.activity_tween_animation;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
-        initView(mContentView);
-    }
-
-    private void initView(View view) {
+    protected void initView(View view) {
         mLlRoot = view.findViewById(R.id.ll_root);
         //设置tween动画
         final LayoutAnimationController lac = new LayoutAnimationController(AnimationUtils.loadAnimation(mActivity, R.anim.anim_tween_animation));

@@ -121,10 +121,9 @@ public class ObjectAnimationFragment extends BaseFragment implements View.OnClic
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initView(view);
     }
 
-    private void initView(View view) {
+    protected void initView(View view) {
         mIvAlpha = mContentView.findViewById(R.id.tv_alpha);
         mIvAlpha.setOnClickListener(this);
         mTvScale = mContentView.findViewById(R.id.tv_scale);

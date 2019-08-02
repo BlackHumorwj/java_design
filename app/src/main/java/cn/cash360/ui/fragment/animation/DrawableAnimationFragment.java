@@ -32,10 +32,9 @@ public class DrawableAnimationFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initView(mContentView);
     }
 
-    private void initView(View view) {
+    protected void initView(View view) {
         ImageView ivBg = view.findViewById(R.id.iv_bg);
         ivBg.setImageResource(R.drawable.anim_drawable_animation);
         AnimationDrawable animationDrawable = (AnimationDrawable) ivBg.getDrawable();
