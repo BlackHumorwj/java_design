@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="@color/tv_color_main_text"/>
+
+
+    <View
+        android:id="@+id/my_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"/>
+
+
+    <cn.cash360.ui.activity.advanced.view.MoveView
+        android:id="@+id/move_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/wolf_color_6e88f7"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>

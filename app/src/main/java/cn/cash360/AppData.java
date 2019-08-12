@@ -1,6 +1,7 @@
 package cn.cash360;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.BuildConfig;
@@ -12,10 +13,13 @@ import com.orhanobut.logger.Logger;
  */
 public class AppData extends Application {
 
+
+    private static Context sContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sContext = getApplicationContext();
         Logger.addLogAdapter(new AndroidLogAdapter() {
             @Override
             public boolean isLoggable(int priority, String tag) {
@@ -23,5 +27,9 @@ public class AppData extends Application {
             }
         });
 
+    }
+
+    public static Context getContext() {
+        return sContext;
     }
 }
