@@ -25,7 +25,41 @@
         android:id="@+id/move_view"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@color/wolf_color_6e88f7"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:background="@color/wolf_color_6e88f7"/>
+
+
+    <view
+        class="cn.cash360.ui.activity.advanced.view.MeasureView$MyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:padding="15dp"/>
+
+    <cn.cash360.ui.activity.advanced.view.ViewGroupMeasure
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:background="@color/amount_red"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="125"/>
+
+        <TextView
+            android:background="@color/black_50_percent"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="125"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="125"/>
+
+
+    </cn.cash360.ui.activity.advanced.view.ViewGroupMeasure>
+
 
 </LinearLayout>

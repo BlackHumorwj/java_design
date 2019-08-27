@@ -5,6 +5,7 @@ import android.view.View;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.advanced.handler.HandlerActivity;
+import cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity;
 import cn.cash360.ui.activity.advanced.view.ViewActivity;
 
 /**
@@ -31,6 +32,7 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
         super.init(view);
         view.findViewById(R.id.tv_handler).setOnClickListener(this);
         view.findViewById(R.id.tv_view).setOnClickListener(this);
+        view.findViewById(R.id.tv_ex).setOnClickListener(this);
 
     }
 
@@ -43,6 +45,9 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.tv_view:
                 startActivity(ViewActivity.newInstance(mActivity));
+                break;
+            case R.id.tv_ex:
+                startActivity(HorizontalScrollViewExActivity.newInstance(mActivity));
                 break;
         }
 

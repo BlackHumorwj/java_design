@@ -119,9 +119,10 @@ public class RxJavaDemoActivity extends BaseActivity {
             }
         });
 
-        //订阅流程 向上调用一次订阅 ，发射流程从上往下一次调用 Observer.onSubscribe(Disposable s)  Observer.onNext(T t)
+        //订阅流程 向上调用依次订阅 ，发射流程从上往下依次调用 Observer.onSubscribe(Disposable s)  Observer.onNext(T t)
 
         //observable2.subscribe(myObserver)
+
         // -->  ObservableFlatMap.subscribeActual(myObserver)
 
         // --> source.subscribe(mergeObserver) 包装一下observer
@@ -176,6 +177,20 @@ public class RxJavaDemoActivity extends BaseActivity {
                 e.onComplete();
             }
         });
+
+
+        //        @Override
+        //        protected void subscribeActual(Observer<? super T> observer) {
+        //            CreateEmitter<T> parent = new CreateEmitter<T>(observer);
+        //            observer.onSubscribe(parent);
+        //
+        //            try {
+        //                source.subscribe(parent);
+        //            } catch (Throwable ex) {
+        //                Exceptions.throwIfFatal(ex);
+        //                parent.onError(ex);
+        //            }
+        //        }
 
 
         //=> observableCreate*subscribe(Observer<? super T> observer);
