@@ -1,0 +1,15 @@
+package cn.cash360.ui.activity.advanced.mvvm.demo2;
+
+import android.arch.lifecycle.LiveData;
+
+/**
+ * @time 2019/9/2 15:08
+ * @desc 统一数据源
+ */
+public interface UserDataSource {
+
+
+    LiveData<User> queryByUsername(String username);
+
+    LiveData<Long> addUser(User user);
+}

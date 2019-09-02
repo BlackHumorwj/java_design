@@ -3,8 +3,12 @@ package cn.cash360.ui.fragment.tab;
 import android.os.Bundle;
 import android.view.View;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.advanced.handler.HandlerActivity;
+import cn.cash360.ui.activity.advanced.mvvm.UserActivity;
+import cn.cash360.ui.activity.advanced.mvvm.UserDemo2Activity;
 import cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity;
 import cn.cash360.ui.activity.advanced.view.ViewActivity;
 
@@ -33,6 +37,7 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
         view.findViewById(R.id.tv_handler).setOnClickListener(this);
         view.findViewById(R.id.tv_view).setOnClickListener(this);
         view.findViewById(R.id.tv_ex).setOnClickListener(this);
+        view.findViewById(R.id.tv_mvvm).setOnClickListener(this);
 
     }
 
@@ -48,6 +53,30 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
                 break;
             case R.id.tv_ex:
                 startActivity(HorizontalScrollViewExActivity.newInstance(mActivity));
+                break;
+            case R.id.tv_mvvm:
+
+                new MaterialDialog.Builder(mActivity)
+                        .items(new String[]{"demo1","demo2"})
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
+                                switch (position){
+                                    case 0:
+                                        startActivity(UserActivity.newInstance(mActivity));
+                                        break;
+                                    case 1:
+                                        startActivity(UserDemo2Activity.newInstance(mActivity));
+                                        break;
+                                }
+
+
+                            }
+                        }).show();
+
+
+
+
                 break;
         }
 

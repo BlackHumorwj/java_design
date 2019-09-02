@@ -31,6 +31,11 @@ public class BaseActivity extends SwipeBackActivity {
     protected void init() {
         initView();
         initData();
+        initEvent();
+    }
+
+    protected void initEvent() {
+
     }
 
     protected void initView() {

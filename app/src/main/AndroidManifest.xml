@@ -2,11 +2,15 @@
 <manifest package="cn.cash360.java_design"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
+        android:name="cn.cash360.AppData"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="cn.cash360.AppData"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -30,6 +34,8 @@
         <activity android:name="cn.cash360.ui.activity.advanced.rxjava.RxJavaDemoActivity"/>
         <activity android:name="cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity"/>
         <activity android:name="cn.cash360.ui.activity.java.ThreadActivity"/>
+        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.UserActivity"/>
+        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.UserDemo2Activity"/>
     </application>
 
 </manifest>
