@@ -4,10 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+
+    <TextView
+        android:id="@+id/tv_thread"
+        android:text="Thread"
+        android:padding="15dp"
+        style="@style/Tv15SpStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:layout_height="wrap_content"/>
+
+
 
 
 </LinearLayout>
