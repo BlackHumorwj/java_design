@@ -9,7 +9,7 @@ import android.arch.lifecycle.LiveData;
 public interface UserDataSource {
 
 
-    LiveData<User> queryByUsername(String username);
+    LiveData<Lcee<User>> queryByUsername(String username);
 
     LiveData<Long> addUser(User user);
 }

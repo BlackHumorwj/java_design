@@ -15,12 +15,12 @@ public class UserViewModel extends ViewModel {
 
     private UserRepository mUserRepository = UserRepository.getInstance();
 
-    private LiveData<User> mUserLiveData;
+    private LiveData<Lcee<User>> mUserLiveData;
 
     private MutableLiveData<String> mUsernameLiveData;
 
 
-    public LiveData<User> getUser(String username) {
+    public LiveData<Lcee<User>> getUser(String username) {
         if (mUserLiveData == null) {
             mUserLiveData = mUserRepository.getUser(username);
         }
@@ -32,12 +32,12 @@ public class UserViewModel extends ViewModel {
 
 
 
-    public LiveData<User> getUser(){
+    public LiveData<Lcee<User>> getUser(){
         if (mUserLiveData==null){
             mUsernameLiveData = new MutableLiveData<>();
-            mUserLiveData = Transformations.switchMap(mUsernameLiveData, new Function<String, LiveData<User>>() {
+            mUserLiveData = Transformations.switchMap(mUsernameLiveData, new Function<String, LiveData<Lcee<User>>>() {
                 @Override
-                public LiveData<User> apply(String input) {
+                public LiveData<Lcee<User>> apply(String input) {
                     return mUserRepository.getUser(input);
                 }
             });

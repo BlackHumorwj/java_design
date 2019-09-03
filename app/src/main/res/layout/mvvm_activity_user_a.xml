@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/v_root"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/tv_name"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="user"
+            type="cn.cash360.ui.activity.advanced.mvvm.demo1.User"/>
+
+        <variable
+            name="isVisible"
+            type="Boolean"/>
+
+        <variable
+            name="viewModle"
+            type="cn.cash360.ui.activity.advanced.mvvm.demo1.UserViewModel"/>
+
+
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/v_root"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:hint="点击mvvm测试"/>
-</LinearLayout>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{String.valueOf(user.id)}"
+            android:visibility="@{user.id!=0? View.VISIBLE:View.GONE}"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{user.name}"/>
+    </LinearLayout>
+
+</layout>
+

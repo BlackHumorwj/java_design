@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.os.SystemClock;
 
+import cn.cash360.ui.activity.advanced.mvvm.demo2.Lcee;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.User;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.UserDataSource;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.repository.local.LocalUserDataSource;
@@ -28,17 +29,17 @@ public class RemoteUserDataSource implements UserDataSource {
 
 
     @Override
-    public LiveData<User> queryByUsername(String username) {
-
-
-        final MutableLiveData<User> liveData = new MutableLiveData<>();
-
-        SystemClock.sleep(2000);
+    public LiveData<Lcee<User>> queryByUsername(String username) {
 
         final User user = new User();
+        final MutableLiveData<Lcee<User>> liveData = new MutableLiveData<>();
+        liveData.setValue(Lcee.loading(user));
+        SystemClock.sleep(2000);
+
+
         user.setName("服务端数据"+SystemClock.currentThreadTimeMillis());
         user.setId(2012355);
-        liveData.setValue(user);
+        liveData.setValue(Lcee.content(user));
 
         // update cache
         LocalUserDataSource.getInstance().addUser(user);

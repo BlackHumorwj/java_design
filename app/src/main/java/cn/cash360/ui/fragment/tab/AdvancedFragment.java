@@ -7,8 +7,9 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.advanced.handler.HandlerActivity;
-import cn.cash360.ui.activity.advanced.mvvm.UserActivity;
+import cn.cash360.ui.activity.advanced.mvvm.demo1.UserActivity;
 import cn.cash360.ui.activity.advanced.mvvm.UserDemo2Activity;
+import cn.cash360.ui.activity.advanced.mvvm.demo3.ProjectActivity;
 import cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity;
 import cn.cash360.ui.activity.advanced.view.ViewActivity;
 
@@ -57,7 +58,7 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
             case R.id.tv_mvvm:
 
                 new MaterialDialog.Builder(mActivity)
-                        .items(new String[]{"demo1","demo2"})
+                        .items(new String[]{"UserViewModel ","demo2","ProjectActivity"})
                         .itemsCallback(new MaterialDialog.ListCallback() {
                             @Override
                             public void onSelection(MaterialDialog dialog, View itemView, int position, CharSequence text) {
@@ -67,6 +68,9 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
                                         break;
                                     case 1:
                                         startActivity(UserDemo2Activity.newInstance(mActivity));
+                                        break;
+                                    case 2:
+                                        startActivity(ProjectActivity.newInstance(mActivity));
                                         break;
                                 }
 

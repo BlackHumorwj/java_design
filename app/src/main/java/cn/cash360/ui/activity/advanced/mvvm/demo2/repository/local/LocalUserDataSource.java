@@ -1,7 +1,11 @@
 package cn.cash360.ui.activity.advanced.mvvm.demo2.repository.local;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MediatorLiveData;
+import android.arch.lifecycle.Observer;
+import android.support.annotation.Nullable;
 
+import cn.cash360.ui.activity.advanced.mvvm.demo2.Lcee;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.User;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.UserDataSource;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.repository.local.service.UserServiceImpl;
@@ -29,8 +33,32 @@ public class LocalUserDataSource implements UserDataSource {
 
 
     @Override
-    public LiveData<User> queryByUsername(String username) {
-        return mUserService.queryByUsername(username);
+    public LiveData<Lcee<User>> queryByUsername(String username) {
+
+        //可以添加多个数据源
+        final MediatorLiveData<Lcee<User>> mediatorLiveData = new MediatorLiveData<>();
+
+        mediatorLiveData.setValue(Lcee.<User>loading());
+
+        mediatorLiveData.addSource(mUserService.queryByUsername(username), new Observer<User>() {
+            @Override
+            public void onChanged(@Nullable User user) {
+                if (user==null){
+                    mediatorLiveData.setValue(Lcee.empty(user));
+
+                }else {
+                    mediatorLiveData.setValue(Lcee.content(user));
+                }
+
+
+
+
+            }
+        });
+
+
+
+        return mediatorLiveData;
     }
 
     @Override

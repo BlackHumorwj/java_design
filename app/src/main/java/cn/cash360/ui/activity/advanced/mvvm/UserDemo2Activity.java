@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import cn.cash360.java_design.R;
+import cn.cash360.ui.activity.advanced.mvvm.demo2.Lcee;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.User;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.UserRepository;
 import cn.cash360.ui.activity.advanced.mvvm.demo2.UserViewModel;
@@ -56,19 +57,19 @@ public class UserDemo2Activity extends BaseActivity implements View.OnClickListe
 
         //创建UserViewModel实例
         mUserViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        mUserViewModel.getUser("ittianyu").observe(this, new Observer<User>() {
+        mUserViewModel.getUser("ittianyu").observe(this, new Observer<Lcee<User>>() {
             @Override
-            public void onChanged(@Nullable User user) {
+            public void onChanged(@Nullable Lcee<User> user) {
                 updateUser(user);
             }
         });
 
     }
 
-    private void updateUser(User user) {
+    private void updateUser(Lcee<User> user) {
         if (user!=null){
-            tvId.setText(user.getId()+"");
-            tvName.setText(user.getName());
+            tvId.setText(user.data.getId()+"");
+            tvName.setText(user.data.getName());
         }
     }
 

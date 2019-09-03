@@ -1,18 +1,16 @@
-package cn.cash360.ui.activity.advanced.mvvm;
+package cn.cash360.ui.activity.advanced.mvvm.demo1;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.TextView;
 
 import cn.cash360.java_design.R;
-import cn.cash360.ui.activity.advanced.mvvm.demo1.MyLocationLinsener;
-import cn.cash360.ui.activity.advanced.mvvm.demo1.User;
-import cn.cash360.ui.activity.advanced.mvvm.demo1.UserViewModel;
+import cn.cash360.java_design.databinding.MvvmActivityUserABinding;
 import cn.cash360.ui.activity.base.BaseActivity;
 
 /**
@@ -22,27 +20,27 @@ import cn.cash360.ui.activity.base.BaseActivity;
 public class UserActivity extends BaseActivity implements View.OnClickListener {
 
 
-    private TextView tvId;
-    private TextView tvName;
+    //    private TextView tvId;
+    //    private TextView tvName;
     private UserViewModel mUserViewModel;
+    private MvvmActivityUserABinding mBinding;
 
     public static Intent newInstance(Context context) {
         Intent intent = new Intent(context, UserActivity.class);
         return intent;
     }
 
-
     @Override
-    protected int getLayoutResID() {
-        return R.layout.mvvm_activity_user_a;
+    protected void setContent() {
+        mBinding = DataBindingUtil.setContentView(this, R.layout.mvvm_activity_user_a);
     }
 
     @Override
     protected void initView() {
         super.initView();
-        tvId = (TextView) findViewById(R.id.tv_id);
-        tvName = (TextView) findViewById(R.id.tv_name);
-        tvName.setOnClickListener(this);
+        //        tvId = (TextView) findViewById(R.id.tv_id);
+        //        tvName = (TextView) findViewById(R.id.tv_name);
+        mBinding.tvName.setOnClickListener(this);
     }
 
 
@@ -62,9 +60,9 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void updateUser(User user) {
-        if (user!=null){
-            tvId.setText(user.getId()+"");
-            tvName.setText(user.getName());
+        if (user != null) {
+            mBinding.setUser(user);
+            mBinding.executePendingBindings();
         }
     }
 
@@ -94,7 +92,8 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void onChanged(@Nullable String name) {
                         // Update the UI, in this case, a TextView.
-                        tvName.setText(name);
+                        //  tvName.setText(name);
+                        updateUser(new User(name));
                     }
                 });
         //endregion
@@ -107,11 +106,8 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
         final int vId = v.getId();
         if (vId == R.id.tv_name) {
             index++;
-            //getCurName().setValue("点击测试"+index);
-
-            mUserViewModel.setUserName("点击测试"+index);
+            mUserViewModel.setUserName("点击测试" + index);
         }
-
 
 
     }

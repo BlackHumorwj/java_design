@@ -19,14 +19,19 @@ public class BaseActivity extends SwipeBackActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.mActivity = this;
-        final int resID = getLayoutResID();
-        if (resID != -1) {
-            setContentView(resID);
-        }
+        setContent();
         init();
 
 
     }
+
+    protected void setContent() {
+        final int resID = getLayoutResID();
+        if (resID != -1) {
+            setContentView(resID);
+        }
+    }
+
 
     protected void init() {
         initView();

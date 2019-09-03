@@ -29,7 +29,7 @@ public class UserRepository {
         this.context = context.getApplicationContext();
     }
 
-    public LiveData<User> getUser(String username) {
+    public LiveData<Lcee<User>> getUser(String username) {
         if (NetworkUtils.isConnected(context)) {
             return remoteUserDataSource.queryByUsername(username);
         } else {

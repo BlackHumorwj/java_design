@@ -21,10 +21,7 @@ public class UserViewModel extends ViewModel {
     }
 
     public void setUserName(String userName){
-
         mUserMutableLiveData.setValue(new User(userName));
-
-
     }
 
 }
