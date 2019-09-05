@@ -1,9 +1,11 @@
-package cn.cash360.ui.activity.java;
+package cn.cash360.ui.java.thread;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 import android.util.Log;
+
+import java.util.HashMap;
 
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
@@ -32,7 +34,16 @@ public class ThreadActivity extends BaseActivity {
         super.initView();
 
 
-        final User user = User.getInstance();
+        final int maxValue = Integer.MAX_VALUE;
+
+
+        final HashMap<String, String> map = new HashMap<>();
+        map.put("dd","aa");
+        map.get("dd");
+        map.remove("");
+
+
+        User user = User.getInstance();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

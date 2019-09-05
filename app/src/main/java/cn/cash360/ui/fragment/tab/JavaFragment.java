@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import cn.cash360.java_design.R;
-import cn.cash360.ui.activity.java.ThreadActivity;
+import cn.cash360.ui.java.thread.ThreadActivity;
 
 /**
  * @time 2019/4/12 12:53

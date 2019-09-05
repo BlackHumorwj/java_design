@@ -83,7 +83,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void initEvent() {
         super.initEvent();
-        final MyLocationLinsener linsener = new MyLocationLinsener(mActivity, getLifecycle(), null);
+        final MyLocationLinstener linsener = new MyLocationLinstener(mActivity, getLifecycle(), null);
 
 
         //region 监听数据变化

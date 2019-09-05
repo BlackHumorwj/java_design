@@ -45,14 +45,9 @@ public class LocalUserDataSource implements UserDataSource {
             public void onChanged(@Nullable User user) {
                 if (user==null){
                     mediatorLiveData.setValue(Lcee.empty(user));
-
                 }else {
                     mediatorLiveData.setValue(Lcee.content(user));
                 }
-
-
-
-
             }
         });
 

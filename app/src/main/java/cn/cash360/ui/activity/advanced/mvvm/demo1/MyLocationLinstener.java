@@ -10,13 +10,13 @@ import android.location.GnssStatus;
  * @time 2019/9/2 10:29
  * @desc
  */
-public class MyLocationLinsener implements LifecycleObserver {
+public class MyLocationLinstener implements LifecycleObserver {
 
     private boolean enabled = false;
     private Lifecycle mLifecycle;
 
 
-    public MyLocationLinsener(Context context, Lifecycle lifecycle, GnssStatus.Callback callback) {
+    public MyLocationLinstener(Context context, Lifecycle lifecycle, GnssStatus.Callback callback) {
         this.mLifecycle = lifecycle;
 
     }
