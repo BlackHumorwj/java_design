@@ -29,15 +29,18 @@
         <activity
             android:name="cn.cash360.ui.activity.ainination.GestureActivity"
             android:label="手势"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.handler.HandlerActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.view.ViewActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.rxjava.RxJavaDemoActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity"/>
-        <activity android:name="cn.cash360.ui.java.ThreadActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.demo1.UserActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.UserDemo2Activity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.demo3.ProjectActivity"/>
-        <activity android:name="cn.cash360.ui.activity.advanced.mvvm.demo4.DataBindingActivity"/>
+        <activity android:name="cn.cash360.advanced.handler.HandlerActivity"/>
+        <activity android:name="cn.cash360.advanced.view.ViewActivity"/>
+        <activity android:name="cn.cash360.advanced.rxjava.RxJavaDemoActivity"/>
+        <activity android:name="cn.cash360.advanced.view.HorizontalScrollViewExActivity"/>
+        <activity android:name="cn.cash360.advanced.mvvm.demo1.UserActivity"/>
+        <activity android:name="cn.cash360.advanced.mvvm.UserDemo2Activity"/>
+        <activity android:name="cn.cash360.advanced.mvvm.demo3.ProjectActivity"/>
+        <activity android:name="cn.cash360.advanced.mvvm.demo4.DataBindingActivity"/>
+        <activity android:name="cn.cash360.advanced.binder.customAidl.BookManagerActivity"/>
+
+        <service android:name="cn.cash360.advanced.binder.customAidl.BookManagerService"
+            android:process=":bookManager"/>
     </application>
 
 </manifest>

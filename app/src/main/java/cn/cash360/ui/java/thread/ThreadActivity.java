@@ -43,7 +43,7 @@ public class ThreadActivity extends BaseActivity {
         map.remove("");
 
 
-        User user = User.getInstance();
+        final User user = User.getInstance();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

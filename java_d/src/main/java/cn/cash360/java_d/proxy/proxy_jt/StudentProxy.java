@@ -26,7 +26,7 @@ public class StudentProxy implements Teacher {
         System.out.println("收到请回复我哟");
     }
 
-    // *静态代理模式
+    // 静态代理模式
 
     /// 学生交学费没有直接去交，而是通过代理来进行的。
     /// 代理模式主要有一个公共的接口、

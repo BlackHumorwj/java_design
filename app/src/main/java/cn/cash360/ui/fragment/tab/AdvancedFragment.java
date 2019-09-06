@@ -5,13 +5,14 @@ import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import cn.cash360.advanced.binder.customAidl.BookManagerActivity;
 import cn.cash360.java_design.R;
-import cn.cash360.ui.activity.advanced.handler.HandlerActivity;
-import cn.cash360.ui.activity.advanced.mvvm.demo1.UserActivity;
-import cn.cash360.ui.activity.advanced.mvvm.UserDemo2Activity;
-import cn.cash360.ui.activity.advanced.mvvm.demo3.ProjectActivity;
-import cn.cash360.ui.activity.advanced.view.HorizontalScrollViewExActivity;
-import cn.cash360.ui.activity.advanced.view.ViewActivity;
+import cn.cash360.advanced.handler.HandlerActivity;
+import cn.cash360.advanced.mvvm.demo1.UserActivity;
+import cn.cash360.advanced.mvvm.UserDemo2Activity;
+import cn.cash360.advanced.mvvm.demo3.ProjectActivity;
+import cn.cash360.advanced.view.HorizontalScrollViewExActivity;
+import cn.cash360.advanced.view.ViewActivity;
 
 /**
  * @time 2019/4/12 12:53
@@ -39,6 +40,7 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
         view.findViewById(R.id.tv_view).setOnClickListener(this);
         view.findViewById(R.id.tv_ex).setOnClickListener(this);
         view.findViewById(R.id.tv_mvvm).setOnClickListener(this);
+        view.findViewById(R.id.tv_binder).setOnClickListener(this);
 
     }
 
@@ -78,10 +80,12 @@ public class AdvancedFragment extends BaseFragment implements View.OnClickListen
                             }
                         }).show();
 
-
-
-
                 break;
+
+            case R.id.tv_binder:
+                startActivity(BookManagerActivity.newInstance(mActivity));
+                break;
+
         }
 
     }

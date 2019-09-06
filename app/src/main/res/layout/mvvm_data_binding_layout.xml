@@ -5,7 +5,7 @@
 
         <variable
             name="student"
-            type="cn.cash360.ui.activity.advanced.mvvm.demo4.Student"/>
+            type="cn.cash360.advanced.mvvm.demo4.Student"/>
 
     </data>
 
