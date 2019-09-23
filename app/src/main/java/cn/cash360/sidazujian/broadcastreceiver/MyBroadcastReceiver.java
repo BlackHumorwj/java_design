@@ -1,4 +1,4 @@
-package cn.cash360.ui.activity.sidazujian.broadcastreceiver;
+package cn.cash360.sidazujian.broadcastreceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

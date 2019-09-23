@@ -19,7 +19,7 @@ import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.ainination.GestureActivity;
 import cn.cash360.ui.activity.ainination.MyAnimationActivity;
 import cn.cash360.ui.activity.customview.MyViewActivity;
-import cn.cash360.ui.activity.sidazujian.ZuJianActivity;
+import cn.cash360.sidazujian.ZuJianActivity;
 
 /**
  * @time 2019/4/12 12:53

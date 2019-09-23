@@ -1,8 +1,10 @@
-package cn.cash360.ui.activity.sidazujian;
+package cn.cash360.sidazujian;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import cn.cash360.sidazujian.service.MyService;
 import cn.cash360.ui.activity.base.BaseActivity;
 
 /**
@@ -17,5 +19,8 @@ public class ZuJianActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("四大组件");
+
+        startService(new Intent(mActivity, MyService.class));
+
     }
 }
