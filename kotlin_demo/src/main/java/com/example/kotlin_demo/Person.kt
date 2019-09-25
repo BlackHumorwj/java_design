@@ -30,7 +30,20 @@ class Person(name: String) {
 
         name.firstOrNull { it == 'g' }
 
-        name.last { it =='i' }
+        name.last { it == 'i' }
+
+
+        println(findBook("1001"))
+
+        var map  = HashMap<String,Int>()
+
+        map["1"] = 1
+
+    }
+
+    private fun findBook(bookId: String): String {
+        return bookId
+
     }
 
 
