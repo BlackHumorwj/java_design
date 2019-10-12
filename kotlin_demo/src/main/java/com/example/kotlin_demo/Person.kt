@@ -1,50 +1,55 @@
 package com.example.kotlin_demo
 
+import android.content.Context
+import android.widget.Toast
+
 /**
  * @time 2019/9/23 12:00
- * @desc
+ * @desc  abstract
  */
-class Person(name: String) {
+open class Person(name: String) {
 
 
-    var maxInt: Int = Int.MIN_VALUE
+    var name: String = ""
+        get() = field.toUpperCase()
+        set(value) {
+            field = "Name =  $name"
+        }
 
-    private val name = "10"
-
-    var name1 = "11"
-
-    fun main(args: Array<String>): Unit {
-
-        println("hello kotlin")
-
-        var n = name.toInt()
-
-
-        println(name == name1)
+    var age: Int = 0
+        get() = age + 1
+        set(value) {
+            field = value + 1
+        }
 
 
-        println(name === name1)
+    /**
+     * 空安全
+     */
+    private fun nullSafe() {
+
+        //默认不可以为null
+        //var notNullArtist: Artist = null;
+
+        //可以为null 用？指定
+        var artist: Artist? = null
 
 
-        val first = name.first()
 
-        name.firstOrNull { it == 'g' }
+        artist?.toString()
 
-        name.last { it == 'i' }
+        //是null的情况下替代值
+        var name = artist?.name ?: "empty"
 
 
-        println(findBook("1001"))
-
-        var map  = HashMap<String,Int>()
-
-        map["1"] = 1
-
-    }
-
-    private fun findBook(bookId: String): String {
-        return bookId
+        print(name);
 
     }
 
+
+
+    fun Context.toast(){
+        Toast.makeText(this,"ddd", Toast.LENGTH_LONG).show()
+    }
 
 }
