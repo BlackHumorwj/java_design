@@ -1,11 +1,9 @@
 package com.example.kotlin_demo
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var forecastList = findViewById<RecyclerView>(R.id.forecast_list)
+
         forecastList.layoutManager = LinearLayoutManager(this)
+
         forecastList.adapter = ForecastListAdapter(items)
 
 
