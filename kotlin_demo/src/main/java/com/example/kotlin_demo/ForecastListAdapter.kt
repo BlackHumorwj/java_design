@@ -3,12 +3,13 @@ package com.example.kotlin_demo
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.kotlin_demo.domain.Domain
 
 /**
  * @time 2019/10/11 18:09
  * @desc
  */
-class ForecastListAdapter(val list: List<String>) : RecyclerView.Adapter<ForecastListAdapter.Holder>() {
+class ForecastListAdapter(val weekForecast: Domain.ForecastList) : RecyclerView.Adapter<ForecastListAdapter.Holder>() {
 
 
 
@@ -18,11 +19,15 @@ class ForecastListAdapter(val list: List<String>) : RecyclerView.Adapter<Forecas
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return weekForecast.dailyForecast.size
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.textView.text = list[position]
+        with(weekForecast.dailyForecast[position]) {
+
+            holder.textView.text = "$date - $description - $high/$low"
+
+        }
     }
 
 
