@@ -1,5 +1,6 @@
 package com.example.kotlin_demo
 
+import android.util.Log
 import com.google.gson.Gson
 import java.net.URL
 
@@ -24,6 +25,8 @@ class ForecastRequst (val zipCode:String){
     fun execute():ForecastResult{
 
         val forecastJsonStr = URL(COMPLETE_URL+zipCode).readText()
+
+        Log.i("xxx",forecastJsonStr)
 
         return Gson().fromJson(forecastJsonStr,ForecastResult::class.java)
 

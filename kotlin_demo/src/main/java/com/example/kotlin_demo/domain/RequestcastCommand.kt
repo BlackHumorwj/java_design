@@ -6,7 +6,7 @@ import com.example.kotlin_demo.ForecastRequst
  * @time 2019/10/14 18:06
  * @desc
  */
-public class RequestcastCommand (val zipCode:String):Command<Domain.ForecastList>{
+ class RequestcastCommand (private val zipCode:String):Command<Domain.ForecastList>{
     override fun execute(): Domain.ForecastList {
 
 
