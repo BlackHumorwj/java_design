@@ -5,14 +5,15 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.example.kotlin_demo.domain.RequestcastCommand
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var forecastList = findViewById<RecyclerView>(R.id.forecast_list)
 
         forecastList.layoutManager = LinearLayoutManager(this)
 
