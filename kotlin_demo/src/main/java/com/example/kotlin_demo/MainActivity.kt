@@ -8,6 +8,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import com.example.kotlin_demo.delegate.MapDeletegate
+import com.example.kotlin_demo.delegate.MyDeletegate
+import com.example.kotlin_demo.demo.Person
 import com.example.kotlin_demo.domain.RequestcastCommand
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.async
@@ -41,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        lambdaFun()
+
         // demoFun()
 
         supportsLollipop {
@@ -50,12 +55,66 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        delegateFun()
+
+
+    }
+
+    private fun delegateFun() {
+
+        var name: String by MyDeletegate()
+
+        name = "小李"
+
+
+        println(name)
+
+
+        var config = MapDeletegate(mapOf(
+                "width" to 1000,
+                "height" to 200,
+                "dp" to 500,
+                "deviceName" to "hw"
+        ))
+
+
+
+    }
+
+    private fun lambdaFun() {
+        textTextView.setOnClickListener {
+            toast(it.isEnabled.toString())
+
+        }
+
+        textTextView.setOnClickListener { view -> toast(view.isEnabled.toString()) }
+
+
+
+        textTextView.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+
+
+            }
+        })
+
+    }
+
+
+    private fun constructorFun() {
+        // var  c = C(1)
+    }
+
+
+    fun setListener(listener: (View) -> Unit) {
+
+
     }
 
 
     //内联函数
-    inline fun supportsLollipop(code:()->Unit){
-        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
+    inline fun supportsLollipop(code: () -> Unit) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             code()
         }
     }
