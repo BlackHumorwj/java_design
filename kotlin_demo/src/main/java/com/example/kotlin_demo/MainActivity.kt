@@ -8,10 +8,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.kotlin_demo.delegate.MapDeletegate
 import com.example.kotlin_demo.delegate.MyDeletegate
 import com.example.kotlin_demo.demo.Person
 import com.example.kotlin_demo.domain.RequestcastCommand
+import com.example.kotlin_demo.fanxing.TypeClass
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.async
 import org.jetbrains.anko.toast
@@ -58,6 +60,17 @@ class MainActivity : AppCompatActivity() {
         delegateFun()
 
 
+        var textView = TextView(this).apply {
+
+            text = "hello world"
+            hint = "提示文字"
+
+            setTextColor(resources.getColor(R.color.cardview_shadow_start_color))
+
+        }
+
+
+
     }
 
     private fun delegateFun() {
@@ -66,9 +79,7 @@ class MainActivity : AppCompatActivity() {
 
         name = "小李"
 
-
         println(name)
-
 
         var config = MapDeletegate(mapOf(
                 "width" to 1000,
@@ -76,10 +87,18 @@ class MainActivity : AppCompatActivity() {
                 "dp" to 500,
                 "deviceName" to "hw"
         ))
+    }
 
+
+    private fun fanXing() {
+
+        var t1 = TypeClass<String>()
+
+        val t2: TypeClass<Any> = t1
 
 
     }
+
 
     private fun lambdaFun() {
         textTextView.setOnClickListener {
