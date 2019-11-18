@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -16,6 +15,7 @@ import com.orhanobut.logger.Logger;
 
 import java.text.MessageFormat;
 
+import androidx.annotation.Nullable;
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
 

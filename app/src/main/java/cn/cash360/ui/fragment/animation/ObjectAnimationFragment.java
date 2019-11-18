@@ -3,8 +3,6 @@ package cn.cash360.ui.fragment.animation;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -13,6 +11,8 @@ import android.widget.TextView;
 import com.nineoldandroids.animation.IntEvaluator;
 import com.nineoldandroids.animation.ValueAnimator;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.ainination.AnimationActivity;
 import cn.cash360.ui.fragment.tab.BaseFragment;

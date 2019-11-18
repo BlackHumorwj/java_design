@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         forecastList.layoutManager = LinearLayoutManager(this)
 
 
-
         async {
 
             //1、异步发起请求

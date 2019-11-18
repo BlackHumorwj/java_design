@@ -1,7 +1,7 @@
 package cn.cash360.advanced.mvvm.demo2.repository.local.service;
 
-import android.arch.lifecycle.LiveData;
 
+import androidx.lifecycle.LiveData;
 import cn.cash360.advanced.mvvm.demo2.User;
 
 /**

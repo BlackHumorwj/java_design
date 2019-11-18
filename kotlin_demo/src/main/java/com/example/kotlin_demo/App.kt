@@ -13,19 +13,18 @@ class App : Application() {
 
     //用object 修饰的类为静态类，里面的方法和变量都为静态的。
 
-
     //companion object 修饰为伴生对象,伴生对象在类中只能存在一个
     companion object {
 
-//        private var instance: Application? = null
-//
-//        fun instantce() = instance!!
+         //        private var instance: Application? = null
 
-//2
-        //var instance: App by Delegates.notNull()
+         //        fun instantce() = instance!!
 
-        //3
+         //var instance: App by Delegates.notNull()
+
+         //3
         var instance: App by DelegatesExt.notNullSingleValue()
+
 
 
     }

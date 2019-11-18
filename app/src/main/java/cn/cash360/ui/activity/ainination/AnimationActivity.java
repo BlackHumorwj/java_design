@@ -2,8 +2,8 @@ package cn.cash360.ui.activity.ainination;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 
+import androidx.fragment.app.Fragment;
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
 import cn.cash360.ui.fragment.animation.DrawableAnimationFragment;

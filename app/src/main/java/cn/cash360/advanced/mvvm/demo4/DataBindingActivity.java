@@ -1,10 +1,10 @@
 package cn.cash360.advanced.mvvm.demo4;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import cn.cash360.java_design.R;
 import cn.cash360.java_design.databinding.MvvmDataBindingLayoutBinding;
 

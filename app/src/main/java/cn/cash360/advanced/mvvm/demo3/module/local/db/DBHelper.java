@@ -1,7 +1,8 @@
 package cn.cash360.advanced.mvvm.demo3.module.local.db;
 
-import android.arch.persistence.room.Room;
 import android.content.Context;
+
+import androidx.room.Room;
 
 /**
  * @time 2019/9/3 11:42

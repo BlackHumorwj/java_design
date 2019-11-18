@@ -1,9 +1,10 @@
 package cn.cash360.advanced.mvvm.demo2;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * @time 2019/9/2 11:11

@@ -1,15 +1,15 @@
 package cn.cash360.advanced.mvvm.demo3.module.local;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.Observer;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo3.data.Projects;
 import cn.cash360.advanced.mvvm.demo3.module.ProjectDataSource;
 import cn.cash360.advanced.mvvm.demo3.module.local.service.ProjectsService;
 import cn.cash360.advanced.mvvm.demo3.module.local.service.ProjectsServiceImpl;
+import io.reactivex.annotations.Nullable;
 
 /**
  * @time 2019/9/3 11:51

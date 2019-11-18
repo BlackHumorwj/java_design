@@ -1,13 +1,13 @@
 package cn.cash360.ui.fragment.animation;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import cn.cash360.java_design.R;
 import cn.cash360.ui.fragment.tab.BaseFragment;
 

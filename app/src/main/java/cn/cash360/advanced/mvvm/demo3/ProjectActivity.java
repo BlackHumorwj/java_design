@@ -1,18 +1,17 @@
 package cn.cash360.advanced.mvvm.demo3;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import cn.cash360.java_design.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo2.Status;
 import cn.cash360.advanced.mvvm.demo3.data.ListStatus;
@@ -20,6 +19,7 @@ import cn.cash360.advanced.mvvm.demo3.data.Projects;
 import cn.cash360.advanced.mvvm.demo3.module.ProjectsRepository;
 import cn.cash360.advanced.mvvm.demo3.module.local.db.DBHelper;
 import cn.cash360.advanced.mvvm.demo3.vm.ProjectsViewModel;
+import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
 
 /**

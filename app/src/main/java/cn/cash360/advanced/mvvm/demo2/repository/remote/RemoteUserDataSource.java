@@ -1,9 +1,9 @@
 package cn.cash360.advanced.mvvm.demo2.repository.remote;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.os.SystemClock;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo2.User;
 import cn.cash360.advanced.mvvm.demo2.UserDataSource;

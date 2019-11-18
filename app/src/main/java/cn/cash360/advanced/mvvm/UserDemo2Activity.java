@@ -1,19 +1,19 @@
 package cn.cash360.advanced.mvvm;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-import cn.cash360.java_design.R;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo2.User;
 import cn.cash360.advanced.mvvm.demo2.UserRepository;
 import cn.cash360.advanced.mvvm.demo2.UserViewModel;
 import cn.cash360.advanced.mvvm.demo2.repository.local.db.DBHelper;
+import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
 
 /**

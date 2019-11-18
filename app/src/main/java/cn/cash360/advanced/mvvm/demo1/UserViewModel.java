@@ -1,7 +1,8 @@
 package cn.cash360.advanced.mvvm.demo1;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 /**
  * @time 2019/9/2 10:37

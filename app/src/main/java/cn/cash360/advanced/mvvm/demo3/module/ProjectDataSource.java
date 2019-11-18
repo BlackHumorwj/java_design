@@ -1,7 +1,7 @@
 package cn.cash360.advanced.mvvm.demo3.module;
 
-import android.arch.lifecycle.LiveData;
 
+import androidx.lifecycle.LiveData;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo3.data.Projects;
 
@@ -10,5 +10,5 @@ import cn.cash360.advanced.mvvm.demo3.data.Projects;
  * @desc
  */
 public interface ProjectDataSource {
-    LiveData<Lcee<Projects>>  queryProjects(int page);
+    LiveData<Lcee<Projects>> queryProjects(int page);
 }

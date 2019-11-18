@@ -1,9 +1,9 @@
 package cn.cash360.java_design;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

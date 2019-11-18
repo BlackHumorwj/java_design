@@ -1,6 +1,5 @@
 package cn.cash360.advanced.mvvm.demo3;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +8,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.cash360.java_design.R;
+import androidx.recyclerview.widget.RecyclerView;
 import cn.cash360.advanced.mvvm.demo3.data.ProjectItem;
+import cn.cash360.java_design.R;
 
 /**
  * @time 2019/9/3 10:35

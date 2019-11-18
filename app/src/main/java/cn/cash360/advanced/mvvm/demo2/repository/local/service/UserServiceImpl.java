@@ -1,10 +1,10 @@
 package cn.cash360.advanced.mvvm.demo2.repository.local.service;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.os.AsyncTask;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import cn.cash360.advanced.mvvm.demo2.User;
 import cn.cash360.advanced.mvvm.demo2.repository.local.dao.UserDao;
 import cn.cash360.advanced.mvvm.demo2.repository.local.db.DBHelper;

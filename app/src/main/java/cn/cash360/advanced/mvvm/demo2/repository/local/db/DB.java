@@ -1,8 +1,8 @@
 package cn.cash360.advanced.mvvm.demo2.repository.local.db;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
 
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 import cn.cash360.advanced.mvvm.demo2.User;
 import cn.cash360.advanced.mvvm.demo2.repository.local.dao.UserDao;
 

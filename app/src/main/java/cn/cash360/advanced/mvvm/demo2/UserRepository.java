@@ -1,8 +1,8 @@
 package cn.cash360.advanced.mvvm.demo2;
 
-import android.arch.lifecycle.LiveData;
 import android.content.Context;
 
+import androidx.lifecycle.LiveData;
 import cn.cash360.advanced.mvvm.demo2.repository.local.LocalUserDataSource;
 import cn.cash360.advanced.mvvm.demo2.repository.remote.RemoteUserDataSource;
 import cn.cash360.util.NetworkUtils;

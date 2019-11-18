@@ -2,8 +2,8 @@ package cn.cash360.sidazujian;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
+import androidx.annotation.Nullable;
 import cn.cash360.sidazujian.service.MyService;
 import cn.cash360.ui.activity.base.BaseActivity;
 

@@ -1,10 +1,10 @@
 package cn.cash360.advanced.mvvm.demo2.repository.local;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.Observer;
 import cn.cash360.advanced.mvvm.demo2.Lcee;
 import cn.cash360.advanced.mvvm.demo2.User;
 import cn.cash360.advanced.mvvm.demo2.UserDataSource;

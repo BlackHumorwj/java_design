@@ -1,14 +1,14 @@
 package cn.cash360.advanced.mvvm.demo1;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.Nullable;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import cn.cash360.java_design.R;
 import cn.cash360.java_design.databinding.MvvmActivityUserABinding;
 import cn.cash360.ui.activity.base.BaseActivity;

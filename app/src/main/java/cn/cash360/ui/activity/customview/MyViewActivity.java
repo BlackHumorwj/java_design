@@ -1,8 +1,8 @@
 package cn.cash360.ui.activity.customview;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
+import androidx.annotation.Nullable;
 import cn.cash360.java_design.R;
 import cn.cash360.ui.activity.base.BaseActivity;
 

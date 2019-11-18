@@ -1,9 +1,5 @@
 package cn.cash360.advanced.mvvm.demo3.data;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
@@ -12,6 +8,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 /**
  * @time 2019/9/3 10:27
