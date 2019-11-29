@@ -103,6 +103,7 @@ public class ImageUtils {
                this.optionsApplier = optionsApplier;
             }
 
+
             buildProvider()方法 返回 FixedLoadProvider
 
             private static <A, Z, R> FixedLoadProvider<A, ImageVideoWrapper, Z, R> buildProvider(Glide glide,
