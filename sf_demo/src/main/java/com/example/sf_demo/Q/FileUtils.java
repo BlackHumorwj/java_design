@@ -23,13 +23,12 @@ public class FileUtils {
         Log.e("directory", filesDir == null ? "null" : filesDir.getAbsolutePath());
 
 
-        final File directory = Environment.getExternalStorageDirectory();///storage/emulated/0
+        final File directory = Environment.getExternalStorageDirectory();
 
         Log.e("directory", directory == null ? "null" : directory.getAbsolutePath());
 
 
         //2、沙箱内的文件拷贝到 外部存储时 需要使用 ContentValue  和 MediaStore 来操作
-
 
 
         //3 、基本概念
@@ -40,16 +39,21 @@ public class FileUtils {
         final File noBackupFilesDir = context.getNoBackupFilesDir();//内部存储不被自动备份的目录 /data/user/0/com.example.sf_demo/no_backup
         final File codeCacheDir = context.getCodeCacheDir();//内部存储代码缓存目录 /data/user/0/com.example.sf_demo/code_cache
 
-        Log.e("directory", getPath(filesDir1)+"---"+getPath(cacheDir)+"---"+getPath(noBackupFilesDir)+"---"+getPath(codeCacheDir)+"---");
+        Log.e("directory", getPath(filesDir1) + "---" + getPath(cacheDir) + "---" + getPath(noBackupFilesDir) + "---" + getPath(codeCacheDir) + "---");
 
 
-        //外部存储 共有目录 其他应用程序可以访问这些 /storage/Android/data/<包名>/files
+        //外部存储 其他应用程序可以访问这些  /storage/Android/data/<包名>/files
         context.getExternalFilesDir(null);
         context.getExternalFilesDir(Environment.DIRECTORY_PICTURES); ///storage/emulated/0/Android/data/com.example.sf_demo/files/Pictures
         context.getExternalFilesDir(Environment.DIRECTORY_MUSIC);
         context.getExternalFilesDir(Environment.DIRECTORY_MOVIES);
         context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS);
 
+
+        //共有目录存储 Q 之前可以通过路径
+        final File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        final File file1 = Environment.getExternalStorageDirectory();/// //storage/emulated/0
+        Log.e("directory", getPath(file) + "---" + getPath(file1));
 
         //官方推荐多媒体文件存放在系统中有专门的目录：Music、Movies、Pictures等，其他文件一律保存在下载目录中：Downloads
 
@@ -63,14 +67,11 @@ public class FileUtils {
         //targetSDK < 29, 默认不开启 Scoped Storage, 但可通过在 manifest 里添加requestLegacyExternalStorage = false 打开
 
         // 外部存储沙箱限制
-
-
-//https://my.oschina.net/JiangTun/blog/3081919
-
+        //https://my.oschina.net/JiangTun/blog/3081919
 
     }
 
-    private static String getPath(File file){
+    private static String getPath(File file) {
         return file.getAbsolutePath();
 
     }
