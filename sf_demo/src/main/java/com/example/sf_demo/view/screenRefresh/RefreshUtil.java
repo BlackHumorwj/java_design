@@ -55,7 +55,7 @@ public class RefreshUtil {
          此方法会进行View树的绘制和刷新，所以在 onCreate() 或者 onResume 中都获取不到View的宽高,一个 Activity 界面的绘制，其实是在 onResume() 之后才开始的。
 
 
-         WindowManagerGlobal#add()
+         WindowManagerGlobal#addView()
          、、、
          public void addView(View view, ViewGroup.LayoutParams params,
          Display display, Window parentWindow) {

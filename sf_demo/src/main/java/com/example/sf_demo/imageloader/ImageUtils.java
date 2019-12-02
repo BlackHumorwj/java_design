@@ -19,6 +19,9 @@ public class ImageUtils {
 
     public static void loadImage(Context context, String imgUrl, ImageView imageView) {
 
+        //时序图 https://www.processon.com/diagraming/5ddb3264e4b09e8b0b725dd4
+
+
         final RequestManager requestManager = Glide.with(context);
         /*
            Glide # with(Context context)
