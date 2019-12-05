@@ -1,9 +1,11 @@
 package com.example.sf_demo.rxjava;
 
 
-import android.database.Observable;
-
-import androidx.lifecycle.Observer;
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 public class RxUtil {
 
