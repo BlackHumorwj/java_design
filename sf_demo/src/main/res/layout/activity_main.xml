@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -35,6 +36,10 @@
         app:layout_constraintTop_toBottomOf="@id/image_1"
         android:background="@color/colorAccent"/>
 
+    <com.example.sf_demo.light.GradientView
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
 
     <com.example.sf_demo.light.LightningView
         android:layout_width="match_parent"
@@ -51,4 +56,4 @@
     </com.example.sf_demo.light.LightningView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

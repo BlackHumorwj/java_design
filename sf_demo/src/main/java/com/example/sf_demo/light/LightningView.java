@@ -111,10 +111,11 @@ public class LightningView  extends FrameLayout {
                 if (mGradient != null) {
                     mGradient.setLocalMatrix(mGradientMatrix);
                 }
-                //❹ 重绘
+                //❹ 重绘 调用onDraw()
                 invalidate();
             }
         });
+
         if (autoRun) {
             valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
             getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {

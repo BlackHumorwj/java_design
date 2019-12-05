@@ -4,7 +4,7 @@ import android.view.View;
 
 /**
  * @time 2019/12/2 10:55
- * @desc
+ * @desc  手机屏幕刷新机制
  */
 public class RefreshUtil {
 
@@ -34,7 +34,7 @@ public class RefreshUtil {
 
 
 
-    //请求绘制操作
+    //请求绘制操作=> View#onDraw();
     public void doInvalidate(View view){
 
         view.invalidate();
