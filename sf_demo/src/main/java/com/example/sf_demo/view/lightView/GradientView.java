@@ -1,4 +1,4 @@
-package com.example.sf_demo.light;
+package com.example.sf_demo.view.lightView;
 
 import android.content.Context;
 import android.graphics.Canvas;
