@@ -58,8 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @return
      */
     private int getAppMaxMemory (){
+
+        ImageView imageView = mImageView1;
+
+
+        imageView =null;
+
+
+
+
         int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        Log.d("TAG", "Max memory is " + maxMemory + "KB----"+maxMemory/1024 +"MB");
+        Log.d("TAG", "Max memory is " + maxMemory + "KB----"+maxMemory/1024 +"MB"+"-----"+imageView+"---"+mImageView1);
         return  maxMemory;
     }
 

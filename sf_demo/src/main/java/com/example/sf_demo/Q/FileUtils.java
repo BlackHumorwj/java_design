@@ -66,7 +66,6 @@ public class FileUtils {
             public static boolean isSDCardEnable() {
             return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
         }
-
          */
 
 

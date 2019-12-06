@@ -1,7 +1,8 @@
-package com.example.sf_demo.view;
+package com.example.sf_demo.view.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.sf_demo.R;
 
@@ -21,16 +22,13 @@ public class LayoutInflateDemo {
 
 
         //使用
-        layoutInflater.inflate(R.layout.support_simple_spinner_dropdown_item,null);
+        final View view = layoutInflater.inflate(R.layout.support_simple_spinner_dropdown_item, null);
 
 
         //源码解析：
         /**
 
          LayoutInflater#inflate()
-
-
-
 
 
 
