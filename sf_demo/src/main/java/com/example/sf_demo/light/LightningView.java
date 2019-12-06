@@ -18,9 +18,9 @@ import androidx.annotation.Nullable;
 
 /**
  * @time 2019/11/25 17:59
- * @desc
+ * @desc  https://www.jianshu.com/p/0dda922897cf
  */
-public class LightningView  extends FrameLayout {
+public class LightningView extends FrameLayout {
     private Shader mGradient;
     private Matrix mGradientMatrix;
     private Paint mPaint;
@@ -71,14 +71,20 @@ public class LightningView  extends FrameLayout {
             if (mViewWidth > 0) {
                 //亮光闪过
                 mGradient = new LinearGradient(0, 0, mViewWidth / 2, mViewHeight,
-                        new int[]{0x00ffffff, 0x73ffffff, 0x00ffffff,  0x99ffffff, 0x00ffffff},
-                        new float[]{0.2f,       0.35f,      0.5f,        0.7f,      1},
+                        new int[]{0x00ffffff, 0x73ffffff, 0x00ffffff},
+                        new float[]{0.35f, 0.5f, 0.65f},
                         Shader.TileMode.CLAMP);
+
                 mPaint.setShader(mGradient);
+
                 mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.LIGHTEN));
+
                 mGradientMatrix = new Matrix();
+
                 mGradientMatrix.setTranslate(-2 * mViewWidth, mViewHeight);
+
                 mGradient.setLocalMatrix(mGradientMatrix);
+
                 rect.set(0, 0, w, h);
             }
         }
