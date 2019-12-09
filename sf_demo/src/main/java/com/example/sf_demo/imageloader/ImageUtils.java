@@ -696,7 +696,7 @@ public class ImageUtils {
 
                 Downsampler#decode():Bitmap
 
-                    服务器端返回的数据获取，对图片的加载，图片压缩 旋转 圆角等逻辑处理，最后返回一个Bitmap对象
+                服务器端返回的数据获取，对图片的加载，图片压缩 旋转 圆角等逻辑处理，最后返回一个Bitmap对象
 
 
                 BitmapResource#obtain():BitmapResource 对Bitmap进行封装
