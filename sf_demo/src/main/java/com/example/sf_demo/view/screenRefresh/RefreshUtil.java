@@ -4,7 +4,7 @@ import android.view.View;
 
 /**
  * @time 2019/12/2 10:55
- * @desc  手机屏幕刷新机制
+ * @desc  手机屏幕刷新机制 参考：https://mp.weixin.qq.com/s/OfeHn8Gf3MBaDvxs-DOzNg
  */
 public class RefreshUtil {
 
