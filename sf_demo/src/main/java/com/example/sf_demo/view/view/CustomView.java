@@ -38,11 +38,16 @@ public class CustomView extends ViewGroup {
 
     }
 
+
+    // View#setFrame()确定自身大小
+
+
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         final int childCount = getChildCount();
         if (childCount > 0) {
             final View childAt = getChildAt(0);
+            //布局子View
             childAt.layout(0, 0, childAt.getMeasuredWidth(), childAt.getMeasuredHeight());
         }
 
@@ -50,7 +55,22 @@ public class CustomView extends ViewGroup {
         final int width = getWidth();
         final int height = getHeight();
 
+    }
 
+
+    //region onDraw
+   /*
+   View#drawBackground() 背景
+   View#onDraw() 内容
+   View#dispatchDraw() 绘制子View
+   View#onDrawForeground() 绘制装饰内容
+    */
+    //endregion
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
     }
 
     @Override
