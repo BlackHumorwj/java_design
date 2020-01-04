@@ -14,6 +14,7 @@ import com.bumptech.glide.DrawableTypeRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.target.Target;
+import com.sonnyjack.widget.dragview.SonnyJackDragView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +44,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getAppMaxMemory();
 
         Log.e("lifeCycle", "onCreate");
+        initDragView();
+    }
+
+
+    private void initDragView() {
+        ImageView imageView = new ImageView(this);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView.setImageResource(R.mipmap.ic_launcher_round);
+        SonnyJackDragView sonnyJackDragView = new SonnyJackDragView.Builder()
+                .setActivity(this)//当前Activity，不可为空
+                .setDefaultLeft(130)//初始位置左边距
+                .setDefaultTop(130)//初始位置上边距
+                .setNeedNearEdge(false)//拖动停止后，是否移到边沿
+                .setSize(100)//DragView大小
+                .setView(imageView)//设置自定义的DragView，切记不可为空
+                .build();
 
     }
 
