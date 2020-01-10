@@ -1,6 +1,9 @@
 package com.example.sf_demo.frame.okhttp;
 
+import android.os.Handler;
 import android.util.Log;
+
+import com.example.sf_demo.helper.DemoCallBack;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -21,9 +24,19 @@ import okhttp3.ResponseBody;
 public class OkHttpUtil {
 
 
+    /**
+     * <a href =" https://blog.csdn.net/mynameishuangshuai/article/details/51303446" > 参考手书</a>
+     */
+
+
     private final OkHttpClient mOkHttpClient;
+    private final Handler mHandler;
+
 
     public OkHttpUtil() {
+
+        mHandler = new Handler();
+
         //构建OKHttpClient对象
         mOkHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(100, TimeUnit.SECONDS)//
@@ -31,7 +44,7 @@ public class OkHttpUtil {
                 .build();
     }
 
-    String httpGet(String url) throws IOException {
+    String httpGet(String url, DemoCallBack callBack) throws IOException {
         //构建 Request
         final Request request = new Request.Builder()//
                 .url(url)//
@@ -47,7 +60,7 @@ public class OkHttpUtil {
             final ResponseBody responseBody = response.body();
             if (responseBody != null) {
                 final String string = responseBody.string();
-                Log.e("xxx",string);
+                Log.e("xxx", string);
                 return string;
             } else {
                 return "";
@@ -80,7 +93,7 @@ public class OkHttpUtil {
             final ResponseBody responseBody = response.body();
             if (responseBody != null) {
                 final String string = responseBody.string();
-                Log.e("xxx",string);
+                Log.e("xxx", string);
                 return string;
             } else {
                 return "";
@@ -92,14 +105,14 @@ public class OkHttpUtil {
     }
 
     //使用post 方法提交 键值对 RequestBody
-    String httpPostKeyValue(String url) throws IOException{
+    String httpPostKeyValue(String url) throws IOException {
 
         //构建键值对类型 FormBody
         RequestBody requestBody = new FormBody.Builder()
                 .add("search", "Jurassic Park")
                 .build();
 
-        Request  request = new Request.Builder()
+        Request request = new Request.Builder()
                 .url(url)
                 .post(requestBody)
                 .build();
@@ -112,7 +125,7 @@ public class OkHttpUtil {
             final ResponseBody responseBody = response.body();
             if (responseBody != null) {
                 final String string = responseBody.string();
-                Log.e("xxx",string);
+                Log.e("xxx", string);
                 return string;
             } else {
                 return "";
