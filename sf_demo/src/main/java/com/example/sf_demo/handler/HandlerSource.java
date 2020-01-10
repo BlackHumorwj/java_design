@@ -24,7 +24,6 @@ public class HandlerSource {
         });
         handler.sendEmptyMessage(1);
 
-
         Looper.prepare();
 
     }

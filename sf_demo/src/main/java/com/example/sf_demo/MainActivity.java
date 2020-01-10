@@ -2,24 +2,26 @@ package com.example.sf_demo;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
-import com.bumptech.glide.BitmapRequestBuilder;
-import com.bumptech.glide.BitmapTypeRequest;
-import com.bumptech.glide.DrawableTypeRequest;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
-import com.bumptech.glide.request.target.Target;
-import com.sonnyjack.widget.dragview.SonnyJackDragView;
+import com.example.sf_demo.base.BaseActivity;
+import com.example.sf_demo.frame.okhttp.OkHttpFragment;
 
-import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+public class MainActivity extends BaseActivity {
+
+
+    private AppCompatSpinner mSpinner;
+    public static ArrayList<String> mList = new ArrayList<>();
+    private FragmentTransaction mFragmentTransaction;
 
     public static Intent newInstance(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
@@ -28,40 +30,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private static final String IMG_URL = "http://cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg";
-    private ImageView mImageView;
-    private ImageView mImageView1;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        findViewById(R.id.btn_click).setOnClickListener(this);
-        mImageView = findViewById(R.id.image);
-        mImageView1 = findViewById(R.id.image_1);
+    protected int getLayoutResID() {
+        return R.layout.activity_main;
+    }
 
 
+    @Override
+    protected void initView() {
+        mList.add(OkHttpFragment.class.getName());
+        mList.add("dddd0");
+        mList.add("dddd0");
+        mList.add("dddd01");
+        mSpinner = findViewById(R.id.spinner);
+        mSpinner.setAdapter(new ArrayAdapter(this, R.layout.spinner_item, mList));
+        //单独设置下拉的textview
+        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                final String path = mList.get(position);
+                final Class<?> aClass;
+                try {
+                    aClass = Class.forName(path);
+                    Fragment fragment = (Fragment) aClass.newInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fl_content, fragment).commit();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
+    @Override
+    protected void initData() {
         getAppMaxMemory();
-
-        Log.e("lifeCycle", "onCreate");
-        initDragView();
     }
 
-
-    private void initDragView() {
-        ImageView imageView = new ImageView(this);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(R.mipmap.ic_launcher_round);
-        SonnyJackDragView sonnyJackDragView = new SonnyJackDragView.Builder()
-                .setActivity(this)//当前Activity，不可为空
-                .setDefaultLeft(130)//初始位置左边距
-                .setDefaultTop(130)//初始位置上边距
-                .setNeedNearEdge(false)//拖动停止后，是否移到边沿
-                .setSize(100)//DragView大小
-                .setView(imageView)//设置自定义的DragView，切记不可为空
-                .build();
-
-    }
 
     @Override
     protected void onResume() {
@@ -90,12 +108,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void viewPostSource() {
 
-        mImageView.post(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        });
     }
 
 
@@ -106,45 +118,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private int getAppMaxMemory() {
 
-        ImageView imageView = mImageView1;
-
-
-        imageView = null;
-
 
         int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-        Log.d("TAG", "Max memory is " + maxMemory + "KB----" + maxMemory / 1024 + "MB" + "-----" + imageView + "---" + mImageView1);
+        Log.d("TAG", "Max memory is " + maxMemory + "KB----" + maxMemory / 1024 + "MB");
         return maxMemory;
     }
 
-
-    @Override
-    public void onClick(View v) {
-
-        final int id = v.getId();
-
-        if (id == R.id.btn_click) {
-
-            startActivity(MainActivity.newInstance(this));
-            return;
-        }
-
-        final RequestManager requestManager = Glide.with(this);//with 绑定生命周期，生命周期结束时取消加载
-
-        final DrawableTypeRequest<String> drawableTypeRequest = requestManager.load(IMG_URL);
-
-        final BitmapTypeRequest<String> bitmapTypeRequest = drawableTypeRequest.asBitmap();
-
-        final BitmapRequestBuilder<String, Bitmap> bitmapBitmapRequestBuilder = bitmapTypeRequest.override(200, 200);
-
-        final Target<Bitmap> target = bitmapBitmapRequestBuilder.into(mImageView);
-
-
-        Glide
-                .with(this)//with 绑定生命周期，生命周期结束时取消加载
-                .load(IMG_URL)
-                .asBitmap()
-                .override(1000, 1000)//指定加载多少像素的照片
-                .into(mImageView1);
-    }
 }
