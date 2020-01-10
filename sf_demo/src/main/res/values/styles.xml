@@ -21,5 +21,22 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@color/colorPrimary</item>  <!--menu 字体颜色-->
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+        <item name="android:textColor">@color/tv_color_main_text</item>
+        <item name="android:textSize">17sp</item> <!--  字体大小-->
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetEnd">0dp</item>
+
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
 
 </resources>
