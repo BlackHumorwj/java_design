@@ -50,8 +50,9 @@ public class OkHttpUtil {
         mSpBuilder = SpannableUtils.getBuilder("");
         //构建OKHttpClient对象
         mOkHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(100, TimeUnit.SECONDS)//
-                .readTimeout(100, TimeUnit.SECONDS)//
+                .connectTimeout(10, TimeUnit.SECONDS)//
+                .readTimeout(10, TimeUnit.SECONDS)//
+                .writeTimeout(10, TimeUnit.SECONDS)//
                 .build();
     }
 
@@ -197,50 +198,25 @@ public class OkHttpUtil {
         }
     }
     //异步get方法
-    void AsynchronousGet(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
+    void asynchronousGet(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
         Request request = new Request.Builder().get().url(url).build();
-
-
-        final Headers requestHead = request.headers();
-        for (int i = 0; i < requestHead.size(); i++) {
-            final String name = requestHead.name(i);
-            final String value = requestHead.value(i);
-            mSpBuilder.append("requestHead:").append(name + ":" + value);
-        }
-
         final Call call = mOkHttpClient.newCall(request);
-
 
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 //状态是否成功
-                if (response.isSuccessful()) {
-                    //遍历响应头信息
-                    final Headers headers = response.headers();
-                    for (int i = 0; i < headers.size(); i++) {
-                        final String name = headers.name(i);
-                        final String value = headers.value(i);
-                        mSpBuilder.append("\nresponseHeader:").append(name + ":" + value);
-                    }
-                    //获取 ResponseBody 信息
-                    final ResponseBody responseBody = response.body();
+                if (!response.isSuccessful())throw new IOException("Unexpected code" + response);
 
-                    if (responseBody != null) {
-                        final String string = responseBody.string();
-                        mSpBuilder.append("\nresponse:").append(string);
-                    } else {
+                //获取 ResponseBody 信息
+                final ResponseBody responseBody = response.body();
+                final String string = responseBody.string();
+                mSpBuilder.append("\nresponse:").append(string);
 
-                    }
-
-                } else {
-                    throw new IOException("Unexpected code" + response);
-                }
                 if (callBack != null) {
                     mHandler.post(new Runnable() {
                         @Override
@@ -251,12 +227,9 @@ public class OkHttpUtil {
                 }
             }
         });
-
-
-
     }
 
-    //设置请求头信息
+    //提取响应头
     void httpHead(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
 
         Request request = new Request.Builder().get().url(url)
@@ -274,13 +247,11 @@ public class OkHttpUtil {
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
 
-
         //提取响应头信息
         mSpBuilder.append("\nServer:").append(response.header("Server"));
         mSpBuilder.append("\nDate:").append(response.header("Date"));
         mSpBuilder.append("\nContent-Type:").append(response.header("Content-Type"));
         mSpBuilder.append("\nVary:").append(response.header("Vary"));
-
 
         if (callBack != null) {
             mHandler.post(new Runnable() {
@@ -304,8 +275,9 @@ public class OkHttpUtil {
                 + " * _1.0_ May 6, 2013\n"
                 + " * _1.1_ June 15, 2013\n"
                 + " * _1.2_ August 11, 2013\n";
-
-        Request request = new Request.Builder().url(url).post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody)).build();
+        Request request = new Request.Builder().url(url)
+                .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody))
+                .build();
 
         final Response response = mOkHttpClient.newCall(request).execute();
 
@@ -331,13 +303,11 @@ public class OkHttpUtil {
 
     //post方法提交 Stream
     void postStreaming(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
-
         RequestBody requestBody = new RequestBody() {
             @Override
             public MediaType contentType() {
                 return MEDIA_TYPE_MARKDOWN;
             }
-
             @Override
             public void writeTo(BufferedSink sink) throws IOException {
                 sink.writeUtf8("Numbers\n");
@@ -346,7 +316,6 @@ public class OkHttpUtil {
                     sink.writeUtf8(String.format(" * %s = %s\n", i, factor(i)));
                 }
             }
-
             private String factor(int n) {
                 for (int i = 2; i < n; i++) {
                     int x = n / i;
@@ -358,16 +327,11 @@ public class OkHttpUtil {
         };
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
-
         final Response response = mOkHttpClient.newCall(request).execute();
-
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
-
         if (callBack != null) {
-
             final String string = response.body().string();
-
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -375,31 +339,21 @@ public class OkHttpUtil {
                 }
             });
         }
-
     }
 
 
     //post上传文件
     void postFile(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
 
-
         final File file = new File("README.md");
-
-
         final RequestBody requestBody = RequestBody.create(MEDIA_TYPE_MARKDOWN, file);
-
         Request request = new Request.Builder().post(requestBody).url(url).build();
-
-
         final Response response = mOkHttpClient.newCall(request).execute();
-
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
 
         if (callBack != null) {
-
             final String string = response.body().string();
-
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
@@ -413,11 +367,9 @@ public class OkHttpUtil {
     //提交表单请求
     void postFormParameters(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
         RequestBody requestBody = new FormBody.Builder().add("search", "Jurassic Park").build();
-
         Request request = new Request.Builder().post(requestBody).url(url).build();
 
         final Response response = mOkHttpClient.newCall(request).execute();
-
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
         if (callBack != null) {
@@ -433,23 +385,19 @@ public class OkHttpUtil {
 
     //post提交分块请求
     void postMultipartRequest(String url, final DemoCallBack<CharSequence> callBack) throws IOException {
-
         MediaType mediaType = MediaType.parse("image/png");
         String IMGUR_CLIENT_ID = "...";
-
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("title", "logo")
                 .addFormDataPart("image", "logo-sequare.png", RequestBody.create(mediaType, new File("")))
                 .build();
 
-
         Request request = new Request.Builder()
                 .header("Authorization", "Client-ID " + IMGUR_CLIENT_ID)
                 .post(requestBody).url("https://api.imgur.com/3/image").build();
 
         final Response response = mOkHttpClient.newCall(request).execute();
-
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
         if (callBack != null) {
@@ -481,11 +429,6 @@ public class OkHttpUtil {
             System.out.println(entry.getKey());
             System.out.println(entry.getValue().content);
         }
-
-        //缓存
-        final Response cacheResponse = response.cacheResponse();
-        final Response networkResponse = response.networkResponse();
-
     }
 
 
@@ -501,23 +444,18 @@ public class OkHttpUtil {
     void responseCache(File cacheDirectory) throws IOException {
 
         int cacheMaxSize = 10 * 1024 * 1024;
-
         final Cache cache = new Cache(cacheDirectory, cacheMaxSize);
 
         //浅度拷贝 一个OkHttpClient
         final OkHttpClient okHttpClient = mOkHttpClient.newBuilder().cache(cache).build();
-
-
         Request request = new Request.Builder()
                 .url("http://publicobject.com/helloworld.txt")
                 .build();
-
 
         final Response response1 = okHttpClient.newCall(request).execute();
 
         if (!response1.isSuccessful())
             throw new IOException("Unexpected code " + response1);
-
 
         String response1Body = response1.body().string();
         System.out.println("Response 1 response:          " + response1);
@@ -532,14 +470,11 @@ public class OkHttpUtil {
         System.out.println("Response 2 response:          " + response2);
         System.out.println("Response 2 cache response:    " + response2.cacheResponse());
         System.out.println("Response 2 network response:  " + response2.networkResponse());
-
         System.out.println("Response 2 equals Response 1? " + response1Body.equals(response2Body));
-
     }
 
     //验证处理
     void handlingAuthentication() throws IOException {
-
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()//
                 .authenticator(new Authenticator() {
                     @Override
@@ -551,14 +486,11 @@ public class OkHttpUtil {
                         if (credential.equals(response.request().header("Authorization"))) {
                             return null;
                         }
-
                         if (responseCount(response) >= 3) {
                             return null;
                         }
-
                         return response.request().newBuilder().header("Authorization", credential).build();
                     }
-
                     private int responseCount(Response response) {
                         int result = 1;
                         while ((response = response.priorResponse()) != null) {
@@ -566,17 +498,14 @@ public class OkHttpUtil {
                         }
                         return result;
                     }
-
                 }).build();
 
         Request request = new Request.Builder()
                 .url("http://publicobject.com/secrets/hellosecret.txt")
                 .build();
-
         Response response = okHttpClient.newCall(request).execute();
         if (!response.isSuccessful())
             throw new IOException("Unexpected code " + response);
-
         System.out.println(response.body().string());
     }
 

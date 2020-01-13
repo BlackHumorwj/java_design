@@ -22,7 +22,6 @@ public abstract class BaseCase {
 
 
     public void handleRequest() {
-
         if (isConsume) {
             doSomething();
         } else {
